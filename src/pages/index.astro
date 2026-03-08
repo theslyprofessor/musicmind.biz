@@ -1,0 +1,171 @@
+---
+import PageLayout from "@/layouts/PageLayout.astro";
+import { Badge } from "@/components/ui/badge";
+import { ContactForm } from "@/components/react/ContactForm";
+import { SITE_CONFIG, SERVICES, WHY_MUSICMIND } from "@/lib/constants";
+import { CheckCircle, ArrowRight, Lightbulb, FileText, Scale, Award, DollarSign, Mic } from "lucide-react";
+
+const iconMap: Record<string, any> = { Lightbulb, FileText, Scale, Award, DollarSign, Mic };
+---
+
+<PageLayout>
+  <!-- Hero Section -->
+  <section class="gradient-hero min-h-screen flex items-center pt-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
+      <div class="max-w-4xl">
+        <Badge variant="outline" className="mb-6">
+          Music Business Agency
+        </Badge>
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight mb-6">
+          <span class="gradient-text">Your Music.</span>
+          <br />
+          <span class="text-foreground">Your Business. Protected.</span>
+        </h1>
+        <p class="text-xl text-muted-foreground mb-8 max-w-2xl">
+          Entertainment consulting, contracts, licensing, business certifications,
+          and entertainment law — so you can focus on making music while we handle
+          the business.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a
+            href="#contact"
+            class="inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground px-8 py-4 rounded-md font-semibold hover:bg-primary/90 transition-colors"
+          >
+            Free Consultation
+            <ArrowRight className="h-5 w-5" />
+          </a>
+          <a
+            href="#services"
+            class="inline-flex items-center justify-center gap-2 border border-input bg-background px-8 py-4 rounded-md font-semibold hover:bg-accent hover:text-accent-foreground transition-colors"
+          >
+            Our Services
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="py-24 bg-background">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl sm:text-4xl font-bold mb-4">What We Do</h2>
+        <p class="text-muted-foreground text-lg max-w-2xl mx-auto">
+          Full-service music business support — from your first contract to your hundredth release
+        </p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {SERVICES.map((service) => {
+          const Icon = iconMap[service.icon];
+          return (
+            <div class="group p-6 rounded-xl bg-card border border-border hover:border-primary/50 transition-all card-hover">
+              <div class="inline-flex p-3 rounded-lg bg-primary/10 text-primary mb-4">
+                {Icon && <Icon className="h-6 w-6" />}
+              </div>
+              <h3 class="text-lg font-semibold mb-2">{service.title}</h3>
+              <p class="text-muted-foreground text-sm leading-relaxed">{service.description}</p>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  </section>
+
+  <!-- Why MusicMind -->
+  <section id="about" class="py-24 bg-card">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <Badge variant="accent" className="mb-4">
+            Why MusicMind
+          </Badge>
+          <h2 class="text-3xl sm:text-4xl font-bold mb-6">
+            Built by People Who Know the Business
+          </h2>
+          <p class="text-muted-foreground text-lg mb-8">
+            We're not just consultants — we're musicians, producers, and industry
+            professionals who've been in the trenches. We built MusicMind because
+            too many talented artists get burned by bad deals, missing paperwork,
+            or simply not knowing their options.
+          </p>
+          <ul class="space-y-4">
+            {WHY_MUSICMIND.map((item) => (
+              <li class="flex items-start gap-3">
+                <CheckCircle className="h-5 w-5 text-primary shrink-0 mt-0.5" />
+                <span class="text-muted-foreground">{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="relative">
+          <div class="aspect-square rounded-2xl bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center">
+            <div class="text-center">
+              <div class="w-32 h-32 rounded-full bg-card border-4 border-primary/30 mx-auto mb-4 flex items-center justify-center">
+                <span class="text-5xl">🎵</span>
+              </div>
+              <p class="text-lg font-semibold gradient-text">Your music deserves</p>
+              <p class="text-lg font-semibold gradient-text">a real business behind it.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-24 bg-background">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div>
+          <Badge variant="outline" className="mb-4">
+            Get Started
+          </Badge>
+          <h2 class="text-3xl sm:text-4xl font-bold mb-6">
+            Let's Talk About Your Music Business
+          </h2>
+          <p class="text-muted-foreground text-lg mb-8">
+            Whether you're an independent artist looking for your first contract review,
+            or an established professional ready to level up your business — we're here to help.
+          </p>
+
+          <div class="space-y-4 mb-8">
+            <div class="flex items-center gap-3">
+              <div class="p-2 rounded-lg bg-primary/10 text-primary">
+                <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+              </div>
+              <a href={`mailto:${SITE_CONFIG.email}`} class="text-foreground hover:text-primary transition-colors">
+                {SITE_CONFIG.email}
+              </a>
+            </div>
+            <div class="flex items-center gap-3">
+              <div class="p-2 rounded-lg bg-primary/10 text-primary">
+                <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                </svg>
+              </div>
+              <a href={`tel:${SITE_CONFIG.phone.replace(/[^0-9+]/g, '')}`} class="text-foreground hover:text-primary transition-colors">
+                {SITE_CONFIG.phone}
+              </a>
+            </div>
+          </div>
+
+          <div class="p-6 rounded-xl bg-card border border-border">
+            <h3 class="font-semibold mb-2">Free 30-Minute Consultation</h3>
+            <p class="text-sm text-muted-foreground">
+              No strings attached. Tell us where you're at and we'll map out
+              your next steps — whether that's with us or not.
+            </p>
+          </div>
+        </div>
+
+        <div class="bg-card rounded-xl p-8 border border-border">
+          <h3 class="text-xl font-semibold mb-6">Send Us a Message</h3>
+          <ContactForm client:visible />
+        </div>
+      </div>
+    </div>
+  </section>
+</PageLayout>

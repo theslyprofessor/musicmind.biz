@@ -1,0 +1,71 @@
+---
+import { SITE_CONFIG, NAV_LINKS } from "@/lib/constants";
+---
+
+<footer class="bg-card border-t border-border">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div>
+        <a href="/" class="flex items-center gap-2 font-bold text-xl mb-4">
+          <span class="gradient-text">Music</span><span class="text-foreground">Mind</span>
+        </a>
+        <p class="text-muted-foreground max-w-md text-sm">
+          Music business agency offering entertainment consulting, legal guidance,
+          and business strategy for artists and industry professionals.
+        </p>
+      </div>
+
+      <div>
+        <h4 class="font-semibold mb-4">Quick Links</h4>
+        <ul class="space-y-2">
+          {NAV_LINKS.map((link) => (
+            <li>
+              <a href={link.href} class="text-muted-foreground hover:text-foreground transition-colors text-sm">
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="font-semibold mb-4">Contact</h4>
+        <ul class="space-y-2 text-muted-foreground text-sm">
+          <li>
+            <a href={`mailto:${SITE_CONFIG.email}`} class="hover:text-foreground transition-colors">
+              {SITE_CONFIG.email}
+            </a>
+          </li>
+          <li>
+            <a href={`tel:${SITE_CONFIG.phone.replace(/[^0-9+]/g, '')}`} class="hover:text-foreground transition-colors">
+              {SITE_CONFIG.phone}
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="border-t border-border mt-8 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
+      <p class="text-muted-foreground text-sm">
+        &copy; {new Date().getFullYear()} {SITE_CONFIG.name}. All rights reserved.
+      </p>
+      <p class="text-muted-foreground text-sm">
+        San Diego, California
+      </p>
+    </div>
+
+    <div class="border-t border-border mt-4 pt-4 text-center">
+      <a
+        href="https://buildforwardtech.com"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-1.5 text-xs text-muted-foreground/60 hover:text-primary transition-colors"
+      >
+        <svg class="h-3 w-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+        </svg>
+        Built by Build Forward Tech
+      </a>
+    </div>
+  </div>
+</footer>
