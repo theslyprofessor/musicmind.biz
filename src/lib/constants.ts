@@ -17,25 +17,25 @@ export const NAV_LINKS = [
 export const PRODUCTS = [
   {
     id: "screenstage",
-    name: "ScreenStage (macOS & Windows)",
-    tag: "Studio & Desk Utility · $19",
-    status: "v1.0 Shipped",
+    name: "ScreenStage (Mac, Windows & Linux)",
+    tag: "Multi-Monitor Utility · $19",
+    status: "v1.1 Available",
     description:
-      "Standalone native SwiftUI (macOS) and Win32 CCD (Windows 10/11) multi-monitor preset engine. Auto-detects studios, classrooms, and homes by hardware screen UUIDs, tracks per-room monitor history (including KVM switches and broadcast TVs), hides remote machine-room screens, and switches complex layouts in one click with offline Ed25519 licensing.",
-    price: "$19 Personal / $199 Lab Pack",
+      "Every room remembers every screen. Automatically recognizes your home desk, recording studio, or classroom when you plug in, remembers every monitor and KVM TV, hides screens you aren't using, and switches layouts in one click.",
+    price: "$19 Personal / $79 Studio & Team Pack",
     href: "https://buildforwardtech.com/screenstage",
-    cta: "Watch Launch Video & Get ScreenStage ($19) on BuildForwardTech →",
+    cta: "Watch Video & Buy ScreenStage ($19) →",
   },
   {
     id: "abletools",
     name: "abletools",
     tag: "Ableton Live Suite",
-    status: "v0.1 Shipped",
+    status: "v0.1 Available",
     description:
-      "Pro Tools workflows inside Ableton Live: batch New Tracks dialog and cascading mono/stereo pair-aware input and output routing built on the Ableton Extensions SDK and Live Object Model.",
-    price: "Open Source / Signed Build",
-    href: "https://github.com/theslyprofessor/abletools",
-    cta: "View on GitHub →",
+      "Pro Tools workflows inside Ableton Live: batch New Tracks dialog and cascading mono/stereo pair-aware input and output routing.",
+    price: "Studio Tool",
+    href: "#contact",
+    cta: "Request Studio Access →",
   },
   {
     id: "midimaze",
@@ -84,7 +84,7 @@ export const SERVICES = [
 ] as const;
 
 export const WHY_MUSICMIND = [
-  "Published creator software (Displays, abletools, Midimaze) in affiliation with Build Forward Tech (buildforwardtech.com)",
+  "Published creator software (ScreenStage, abletools, Midimaze) in affiliation with Build Forward Tech (buildforwardtech.com)",
   "Built by active producers, studio engineers, and systems architects",
   "End-to-end support from studio workflow automation to catalog monetization",
   "Transparent pricing with one-time software licenses and clear consulting scopes",
