@@ -1,7 +1,7 @@
 export const SITE_CONFIG = {
   name: "MusicMind",
   tagline: "Music Technology, Studio Software & Business Strategy",
-  description: "Creator software (Displays, abletools, QuietPlease), studio systems, catalog administration, licensing workflows, and strategic business guidance in affiliation with Build Forward Tech.",
+  description: "Creator software (ScreenStage, abletools, QuietPlease), studio systems, catalog administration, licensing workflows, and strategic business guidance in affiliation with Build Forward Tech.",
   email: "info@musicmind.biz",
   phone: "(619) 555-0199",
   url: "https://musicmind.biz",
@@ -16,15 +16,15 @@ export const NAV_LINKS = [
 
 export const PRODUCTS = [
   {
-    id: "displays",
-    name: "Displays (macOS & Windows)",
+    id: "screenstage",
+    name: "ScreenStage (macOS & Windows)",
     tag: "Studio & Desk Utility · $19",
     status: "v1.0 Shipped",
     description:
-      "Standalone native SwiftUI (macOS) and Win32 CCD (Windows 10/11) multi-monitor preset engine. Auto-detects studios, classrooms, and homes by hardware screen UUIDs, tracks per-room monitor history (including KVM switches and broadcast TVs), hides remote machine-room screens, and switches complex layouts in one click.",
-    price: "$19 One-Time (or Free Open Source)",
-    href: "https://buildforwardtech.com/displays",
-    cta: "Watch Launch Video & Buy ($19) on BuildForwardTech →",
+      "Standalone native SwiftUI (macOS) and Win32 CCD (Windows 10/11) multi-monitor preset engine. Auto-detects studios, classrooms, and homes by hardware screen UUIDs, tracks per-room monitor history (including KVM switches and broadcast TVs), hides remote machine-room screens, and switches complex layouts in one click with offline Ed25519 licensing.",
+    price: "$19 Personal / $199 Lab Pack",
+    href: "https://buildforwardtech.com/screenstage",
+    cta: "Watch Launch Video & Get ScreenStage ($19) on BuildForwardTech →",
   },
   {
     id: "abletools",
