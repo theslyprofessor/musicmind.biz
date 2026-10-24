@@ -18,7 +18,7 @@ export const PRODUCTS = [
   {
     id: "screenstage",
     name: "ScreenStage (Mac, Windows & Linux)",
-    tag: "Multi-Monitor Utility · $19",
+    tag: "Multi-Monitor Engine · $19",
     status: "v1.1 Available",
     description:
       "Every room remembers every screen. Automatically recognizes your home desk, recording studio, or classroom when you plug in, remembers every monitor and KVM TV, hides screens you aren't using, and switches layouts in one click.",
@@ -27,15 +27,26 @@ export const PRODUCTS = [
     cta: "Watch Video & Buy ScreenStage ($19) →",
   },
   {
-    id: "abletools",
-    name: "abletools",
-    tag: "Ableton Live Suite",
-    status: "v0.1 Available",
+    id: "quietplease",
+    name: "QuietPlease (macOS 14+)",
+    tag: "Classroom & Studio Compressor · $15",
+    status: "v0.3 Available",
     description:
-      "Pro Tools workflows inside Ableton Live: batch New Tracks dialog and cascading mono/stereo pair-aware input and output routing.",
-    price: "Studio Tool",
-    href: "#contact",
-    cta: "Request Studio Access →",
+      "A real audio compressor detector running on your room microphone. Threshold, ratio, knee, attack, release, 4 live scopes, and 32-band sound training put a full-screen Quiet Please sign on every display when the room gets too loud.",
+    price: "$15 Personal / $149 Classroom & Studio Pack",
+    href: "https://buildforwardtech.com/quietplease",
+    cta: "Watch Video & Buy QuietPlease ($15) →",
+  },
+  {
+    id: "trackcascade",
+    name: "TrackCascade (abletools)",
+    tag: "Ableton Live 11 & 12 · $29",
+    status: "v1.0 Available",
+    description:
+      "Pro Tools-speed session setup inside Ableton Live: batch New Tracks dialog (.ablx) and pair-aware mono/stereo cascading hardware input and output routing (.amxd + CLI).",
+    price: "$29 Personal / $249 Studio & Lab Pack",
+    href: "https://buildforwardtech.com/trackcascade",
+    cta: "Watch Video & Buy TrackCascade ($29) →",
   },
   {
     id: "midimaze",
