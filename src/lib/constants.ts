@@ -1,37 +1,74 @@
 export const SITE_CONFIG = {
   name: "MusicMind",
-  tagline: "Music Business Agency",
-  description: "Entertainment consulting, legal services, business certifications, and strategic guidance for artists and music industry professionals.",
+  tagline: "Music Technology, Studio Software & Business Strategy",
+  description: "Creator software (Displays, abletools, QuietPlease), studio systems, catalog administration, licensing workflows, and strategic business guidance in affiliation with Build Forward Tech.",
   email: "info@musicmind.biz",
   phone: "(619) 555-0199",
   url: "https://musicmind.biz",
 } as const;
 
 export const NAV_LINKS = [
+  { href: "#products", label: "Software & Tools" },
   { href: "#services", label: "Services" },
   { href: "#about", label: "About" },
   { href: "#contact", label: "Contact" },
 ] as const;
 
+export const PRODUCTS = [
+  {
+    id: "displays",
+    name: "Displays (macOS & Windows)",
+    tag: "Studio & Desk Utility · $19",
+    status: "v1.0 Shipped",
+    description:
+      "Standalone native SwiftUI (macOS) and Win32 CCD (Windows 10/11) multi-monitor preset engine. Auto-detects studios, classrooms, and homes by hardware screen UUIDs, tracks per-room monitor history (including KVM switches and broadcast TVs), hides remote machine-room screens, and switches complex layouts in one click.",
+    price: "$19 One-Time (or Free Open Source)",
+    href: "https://buildforwardtech.com/displays",
+    cta: "Watch Launch Video & Buy ($19) on BuildForwardTech →",
+  },
+  {
+    id: "abletools",
+    name: "abletools",
+    tag: "Ableton Live Suite",
+    status: "v0.1 Shipped",
+    description:
+      "Pro Tools workflows inside Ableton Live: batch New Tracks dialog and cascading mono/stereo pair-aware input and output routing built on the Ableton Extensions SDK and Live Object Model.",
+    price: "Open Source / Signed Build",
+    href: "https://github.com/theslyprofessor/abletools",
+    cta: "View on GitHub →",
+  },
+  {
+    id: "midimaze",
+    name: "Midimaze Studio Ops",
+    tag: "Studio & Curriculum Platform",
+    status: "In Production",
+    description:
+      "Unified studio operations kit for recording facilities and music departments: multi-room studio booking, gear and microphone inventory, maintenance ticketing, interactive score analysis, and live curriculum publishing.",
+    price: "Institutional License",
+    href: "https://midimaze.com",
+    cta: "Explore Midimaze →",
+  },
+] as const;
+
 export const SERVICES = [
   {
     title: "Entertainment Consulting",
-    description: "Strategic guidance for artists, labels, and entertainment companies. From career development to brand partnerships, we help you navigate the industry with confidence.",
+    description: "Strategic guidance for artists, studios, labels, and entertainment companies. From career development to technology partnerships, we help you navigate the modern music industry.",
     icon: "Lightbulb",
   },
   {
-    title: "Contracts & Licensing",
-    description: "Review, negotiation, and drafting support for recording contracts, sync licenses, publishing deals, and distribution agreements.",
+    title: "Licensing & Deal Structuring",
+    description: "Business workflow support for recording agreements, sync licensing, master/publishing splits, and distribution deal modeling.",
     icon: "FileText",
   },
   {
-    title: "Entertainment Law",
-    description: "Legal guidance on intellectual property, copyright protection, trademark registration, royalty disputes, and entertainment litigation support.",
+    title: "Rights & Catalog Administration",
+    description: "Intellectual property registration workflows, copyright and split-sheet organization, ISRC/UPC metadata hygiene, and catalog audit preparation.",
     icon: "Scale",
   },
   {
     title: "Business Certifications",
-    description: "Help securing business certifications, LLC formation, DBA registration, and compliance documentation to legitimize and protect your music business.",
+    description: "Operational setup for LLC/DBA filings, vendor registrations, and business compliance documentation to organize your music ventures.",
     icon: "Award",
   },
   {
@@ -40,16 +77,16 @@ export const SERVICES = [
     icon: "DollarSign",
   },
   {
-    title: "Artist Development",
-    description: "Comprehensive artist development strategy including branding, marketing plans, digital presence, and release strategy for independent and emerging artists.",
+    title: "Studio & Artist Systems",
+    description: "Custom studio hardware/software integration, multi-monitor control room workflows, and release strategy for independent creators and educators.",
     icon: "Mic",
   },
 ] as const;
 
 export const WHY_MUSICMIND = [
-  "Industry veterans with decades of combined experience",
-  "Personalized approach — not a one-size-fits-all agency",
-  "End-to-end support from formation to monetization",
-  "Transparent pricing with no hidden retainers",
-  "Deep connections across music, tech, and legal sectors",
+  "Published creator software (Displays, abletools, Midimaze) in affiliation with Build Forward Tech (buildforwardtech.com)",
+  "Built by active producers, studio engineers, and systems architects",
+  "End-to-end support from studio workflow automation to catalog monetization",
+  "Transparent pricing with one-time software licenses and clear consulting scopes",
+  "Deep connections across music production, higher education, and frontier technology",
 ] as const;

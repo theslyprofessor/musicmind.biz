@@ -2,7 +2,7 @@
 import PageLayout from "@/layouts/PageLayout.astro";
 import { Badge } from "@/components/ui/badge";
 import { ContactForm } from "@/components/react/ContactForm";
-import { SITE_CONFIG, SERVICES, WHY_MUSICMIND } from "@/lib/constants";
+import { SITE_CONFIG, PRODUCTS, SERVICES, WHY_MUSICMIND } from "@/lib/constants";
 import { CheckCircle, ArrowRight, Lightbulb, FileText, Scale, Award, DollarSign, Mic } from "lucide-react";
 
 const iconMap: Record<string, any> = { Lightbulb, FileText, Scale, Award, DollarSign, Mic };
@@ -14,33 +14,69 @@ const iconMap: Record<string, any> = { Lightbulb, FileText, Scale, Award, Dollar
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
       <div class="max-w-4xl">
         <Badge variant="outline" className="mb-6">
-          Music Business Agency
+          Music Technology, Studio Software &amp; Business Strategy · Affiliated with Build Forward Tech
         </Badge>
         <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight mb-6">
           <span class="gradient-text">Your Music.</span>
           <br />
-          <span class="text-foreground">Your Business. Protected.</span>
+          <span class="text-foreground">Your Studio &amp; Business. Powered.</span>
         </h1>
         <p class="text-xl text-muted-foreground mb-8 max-w-2xl">
-          Entertainment consulting, contracts, licensing, business certifications,
-          and entertainment law — so you can focus on making music while we handle
-          the business.
+          Commercial studio software (<a href="https://buildforwardtech.com/displays" class="text-primary underline">Displays</a>, abletools, Midimaze), catalog administration, licensing workflows, and strategic business consulting built in affiliation with <a href="https://buildforwardtech.com/#labs" class="text-primary underline">Build Forward Tech</a>.
         </p>
         <div class="flex flex-col sm:flex-row gap-4">
           <a
-            href="#contact"
+            href="#products"
             class="inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground px-8 py-4 rounded-md font-semibold hover:bg-primary/90 transition-colors"
           >
-            Free Consultation
+            Explore Studio Software
             <ArrowRight className="h-5 w-5" />
           </a>
           <a
             href="#services"
             class="inline-flex items-center justify-center gap-2 border border-input bg-background px-8 py-4 rounded-md font-semibold hover:bg-accent hover:text-accent-foreground transition-colors"
           >
-            Our Services
+            Business &amp; Studio Services
           </a>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Software & Tools Section (Affiliated with Build Forward Tech) -->
+  <section id="products" class="py-24 bg-card border-y border-border">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <Badge variant="accent" className="mb-4">MusicMind × Build Forward Tech Labs</Badge>
+        <h2 class="text-3xl sm:text-4xl font-bold mb-4">Studio Software &amp; Creator Tools</h2>
+        <p class="text-muted-foreground text-lg max-w-3xl mx-auto">
+          We build and ship native macOS, Windows, and web tools for recording studios, educators, and multi-monitor workstations in partnership with <a href="https://buildforwardtech.com/#labs" class="text-primary underline">Build Forward Tech Labs</a>.
+        </p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {PRODUCTS.map((product) => (
+          <div class="p-6 rounded-xl bg-background border border-border hover:border-primary/60 transition-all flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between gap-2 mb-3">
+                <span class="text-xs font-mono uppercase tracking-wider text-primary font-semibold">{product.tag}</span>
+                <span class="text-xs px-2.5 py-0.5 rounded-full bg-primary/15 text-primary font-medium">{product.status}</span>
+              </div>
+              <h3 class="text-xl font-bold mb-2">{product.name}</h3>
+              <p class="text-muted-foreground text-sm leading-relaxed mb-4">{product.description}</p>
+            </div>
+            <div>
+              <div class="text-xs text-muted-foreground font-mono mb-3">{product.price}</div>
+              <a
+                href={product.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="block w-full py-2.5 px-4 rounded-lg bg-primary text-primary-foreground text-center text-sm font-semibold hover:bg-primary/90 transition"
+              >
+                {product.cta}
+              </a>
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   </section>
@@ -51,7 +87,7 @@ const iconMap: Record<string, any> = { Lightbulb, FileText, Scale, Award, Dollar
       <div class="text-center mb-16">
         <h2 class="text-3xl sm:text-4xl font-bold mb-4">What We Do</h2>
         <p class="text-muted-foreground text-lg max-w-2xl mx-auto">
-          Full-service music business support — from your first contract to your hundredth release
+          Full-service music business and studio operations support from your first release to institutional studio deployments.
         </p>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -80,13 +116,10 @@ const iconMap: Record<string, any> = { Lightbulb, FileText, Scale, Award, Dollar
             Why MusicMind
           </Badge>
           <h2 class="text-3xl sm:text-4xl font-bold mb-6">
-            Built by People Who Know the Business
+            Built by People Who Build the Tools
           </h2>
           <p class="text-muted-foreground text-lg mb-8">
-            We're not just consultants — we're musicians, producers, and industry
-            professionals who've been in the trenches. We built MusicMind because
-            too many talented artists get burned by bad deals, missing paperwork,
-            or simply not knowing their options.
+            We are musicians, studio engineers, educators, and software architects. In affiliation with <a href="https://buildforwardtech.com" class="text-primary underline">Build Forward Tech</a>, we ship commercial studio software alongside hands-on music business and catalog consulting.
           </p>
           <ul class="space-y-4">
             {WHY_MUSICMIND.map((item) => (
@@ -104,8 +137,8 @@ const iconMap: Record<string, any> = { Lightbulb, FileText, Scale, Award, Dollar
               <div class="w-32 h-32 rounded-full bg-card border-4 border-primary/30 mx-auto mb-4 flex items-center justify-center">
                 <span class="text-5xl">🎵</span>
               </div>
-              <p class="text-lg font-semibold gradient-text">Your music deserves</p>
-              <p class="text-lg font-semibold gradient-text">a real business behind it.</p>
+              <p class="text-lg font-semibold gradient-text">Your music and studio deserve</p>
+              <p class="text-lg font-semibold gradient-text">real software and business systems.</p>
             </div>
           </div>
         </div>
@@ -122,11 +155,10 @@ const iconMap: Record<string, any> = { Lightbulb, FileText, Scale, Award, Dollar
             Get Started
           </Badge>
           <h2 class="text-3xl sm:text-4xl font-bold mb-6">
-            Let's Talk About Your Music Business
+            Let's Talk About Your Studio or Music Business
           </h2>
           <p class="text-muted-foreground text-lg mb-8">
-            Whether you're an independent artist looking for your first contract review,
-            or an established professional ready to level up your business — we're here to help.
+            Whether you need multi-seat studio licenses for Displays, custom Ableton/Pro Tools workflow engineering, or catalog and publishing administration, reach out below.
           </p>
 
           <div class="space-y-4 mb-8">
@@ -155,8 +187,7 @@ const iconMap: Record<string, any> = { Lightbulb, FileText, Scale, Award, Dollar
           <div class="p-6 rounded-xl bg-card border border-border">
             <h3 class="font-semibold mb-2">Free 30-Minute Consultation</h3>
             <p class="text-sm text-muted-foreground">
-              No strings attached. Tell us where you're at and we'll map out
-              your next steps — whether that's with us or not.
+              Tell us what you are building and we will map out your next steps across studio technology and music business operations.
             </p>
           </div>
         </div>
