@@ -22,7 +22,7 @@ export const PRODUCTS = [
     status: "v1.1 Available",
     description:
       "Every room remembers every screen. Automatically recognizes your home desk, recording studio, or classroom when you plug in, remembers every monitor and KVM TV, hides screens you aren't using, and switches layouts in one click.",
-    price: "$19 Personal / $79 Studio & Team Pack",
+    price: "$19 Personal / $199 Studio & Team Pack",
     href: "https://buildforwardtech.com/screenstage",
     cta: "Watch Video & Buy ScreenStage ($19) →",
   },
