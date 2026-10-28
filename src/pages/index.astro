@@ -2,60 +2,114 @@
 import PageLayout from "@/layouts/PageLayout.astro";
 import { Badge } from "@/components/ui/badge";
 import { ContactForm } from "@/components/react/ContactForm";
+import { ReleaseGuideHub } from "@/components/react/ReleaseGuideHub";
 import { SITE_CONFIG, PRODUCTS, SERVICES, WHY_MUSICMIND } from "@/lib/constants";
-import { CheckCircle, ArrowRight, Lightbulb, FileText, Scale, Award, DollarSign, Mic } from "lucide-react";
+import { CheckCircle, ArrowRight, Lightbulb, FileText, Scale, Award, DollarSign, Mic, ExternalLink } from "lucide-react";
 
-const iconMap: Record<string, any> = { Lightbulb, FileText, Scale, Award, DollarSign, Mic };
+const iconMap: Record<string, any> = { CheckCircle, Lightbulb, FileText, Scale, Award, DollarSign, Mic };
 ---
 
 <PageLayout>
   <!-- Hero Section -->
-  <section class="gradient-hero min-h-screen flex items-center pt-16">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
+  <section class="gradient-hero min-h-[82vh] flex items-center pt-20 pb-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
       <div class="max-w-4xl">
         <Badge variant="outline" className="mb-6">
-          Music Technology, Studio Software &amp; Business Strategy · Affiliated with Build Forward Tech
+          A-to-Z Song Release Checklist · U.S. Copyright &amp; Royalty Accounting · Studio Software
         </Badge>
         <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight mb-6">
-          <span class="gradient-text">Your Music.</span>
+          <span class="gradient-text">From Fixed MP3 to</span>
           <br />
-          <span class="text-foreground">Your Studio &amp; Business. Powered.</span>
+          <span class="text-foreground">Registered Copyright &amp; Every Royalty Paid.</span>
         </h1>
-        <p class="text-xl text-muted-foreground mb-8 max-w-2xl">
-          Commercial studio software (<a href="https://buildforwardtech.com/screenstage" class="text-primary underline">ScreenStage</a>, <a href="https://buildforwardtech.com/quietplease" class="text-primary underline">QuietPlease</a>, <a href="https://buildforwardtech.com/trackcascade" class="text-primary underline">TrackCascade</a>, Midimaze), catalog administration, licensing workflows, and strategic business consulting built in affiliation with <a href="https://buildforwardtech.com/#labs" class="text-primary underline">Build Forward Tech</a>.
+        <p class="text-xl text-muted-foreground mb-8 max-w-3xl leading-relaxed">
+          Bouncing an MP3 or WAV to your hard drive makes your song copyrighted, but it does <strong>not</strong> register it with the U.S. Congress (<a href="https://copyright.gov" target="_blank" rel="noopener noreferrer" class="text-primary underline">copyright.gov</a>). Uploading to DistroKid only collects your <strong>Master (℗)</strong> streaming share, while ASCAP and BMI only track <strong>Public Performance (©)</strong>. Use our interactive A-to-Z release checklist and fee calculator below to close every gap across <strong>copyright.gov</strong>, <strong>PROs</strong>, <strong>The MLC</strong>, and <strong>SoundExchange</strong>.
         </p>
-        <div class="flex flex-col sm:flex-row gap-4">
+        <div class="flex flex-col sm:flex-row flex-wrap gap-4">
           <a
-            href="#products"
-            class="inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground px-8 py-4 rounded-md font-semibold hover:bg-primary/90 transition-colors"
+            href="#release-checklist"
+            class="inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground px-7 py-4 rounded-md font-semibold hover:bg-primary/90 transition-colors"
           >
-            Explore Studio Software
+            Open 6-Step Release Checklist
             <ArrowRight className="h-5 w-5" />
           </a>
           <a
-            href="#services"
-            class="inline-flex items-center justify-center gap-2 border border-input bg-background px-8 py-4 rounded-md font-semibold hover:bg-accent hover:text-accent-foreground transition-colors"
+            href="#copyright-calculator"
+            class="inline-flex items-center justify-center gap-2 border border-input bg-background px-7 py-4 rounded-md font-semibold hover:bg-accent hover:text-accent-foreground transition-colors"
           >
-            Business &amp; Studio Services
+            Calculate Copyright Office Fees ($45 / $65 / $85)
+          </a>
+          <a
+            href="https://midimaze.com/articles/releasing-a-song-and-collecting-every-royalty"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center justify-center gap-2 border border-primary/40 bg-primary/10 text-primary px-6 py-4 rounded-md font-semibold hover:bg-primary/20 transition-colors"
+          >
+            Full Midimaze Course
+            <ExternalLink className="h-4 w-4" />
           </a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Software & Tools Section (Affiliated with Build Forward Tech) -->
-  <section id="products" class="py-24 bg-card border-y border-border">
+  <!-- Interactive Release, Copyright & Royalty Accounting Hub -->
+  <section id="release-guide" class="py-20 bg-background border-t border-border">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-14">
+        <Badge variant="accent" className="mb-4">Interactive A-to-Z Release System</Badge>
+        <h2 class="text-3xl sm:text-4xl font-bold mb-4">
+          How to Release a Song &amp; Collect 100% of Your Royalties
+        </h2>
+        <p class="text-muted-foreground text-lg max-w-3xl mx-auto">
+          Every recorded song contains two distinct copyrights: the <strong>Musical Composition (©)</strong> and the <strong>Sound Recording / Master (℗)</strong>. Walk through the interactive tools below to register your copyright properly and connect every royalty pipeline.
+        </p>
+      </div>
+
+      <ReleaseGuideHub client:load />
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="py-24 bg-card border-t border-border">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-16">
-        <Badge variant="accent" className="mb-4">MusicMind × Build Forward Tech Labs</Badge>
-        <h2 class="text-3xl sm:text-4xl font-bold mb-4">Studio Software &amp; Creator Tools</h2>
+        <Badge variant="outline" className="mb-4">Catalog &amp; Release Administration</Badge>
+        <h2 class="text-3xl sm:text-4xl font-bold mb-4">A-to-Z Release &amp; Catalog Services</h2>
+        <p class="text-muted-foreground text-lg max-w-2xl mx-auto">
+          Hands-on catalog organization, split sheet accounting, and royalty pipeline setup for independent artists, producers, and studio teams.
+        </p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {SERVICES.map((service) => {
+          const Icon = iconMap[service.icon];
+          return (
+            <div class="group p-6 rounded-xl bg-background border border-border hover:border-primary/50 transition-all card-hover">
+              <div class="inline-flex p-3 rounded-lg bg-primary/10 text-primary mb-4">
+                {Icon && <Icon className="h-6 w-6" />}
+              </div>
+              <h3 class="text-lg font-semibold mb-2">{service.title}</h3>
+              <p class="text-muted-foreground text-sm leading-relaxed">{service.description}</p>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  </section>
+
+  <!-- Software & Tools Section (Affiliated with Build Forward Tech & Midimaze) -->
+  <section id="products" class="py-24 bg-background border-y border-border">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <Badge variant="accent" className="mb-4">MusicMind × Midimaze × Build Forward Tech</Badge>
+        <h2 class="text-3xl sm:text-4xl font-bold mb-4">Studio Software &amp; Education Platforms</h2>
         <p class="text-muted-foreground text-lg max-w-3xl mx-auto">
-          We build and ship native macOS, Windows, and web tools for recording studios, educators, and multi-monitor workstations in partnership with <a href="https://buildforwardtech.com/#labs" class="text-primary underline">Build Forward Tech Labs</a>.
+          We build and ship native macOS, Windows, and web tools for recording studios, educators, and multi-monitor workstations in partnership with <a href="https://midimaze.com" class="text-primary underline">Midimaze</a> and <a href="https://buildforwardtech.com/#labs" class="text-primary underline">Build Forward Tech Labs</a>.
         </p>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {PRODUCTS.map((product) => (
-          <div class="p-6 rounded-xl bg-background border border-border hover:border-primary/60 transition-all flex flex-col justify-between">
+          <div class="p-6 rounded-xl bg-card border border-border hover:border-primary/60 transition-all flex flex-col justify-between">
             <div>
               <div class="flex items-center justify-between gap-2 mb-3">
                 <span class="text-xs font-mono uppercase tracking-wider text-primary font-semibold">{product.tag}</span>
@@ -81,32 +135,6 @@ const iconMap: Record<string, any> = { Lightbulb, FileText, Scale, Award, Dollar
     </div>
   </section>
 
-  <!-- Services Section -->
-  <section id="services" class="py-24 bg-background">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-16">
-        <h2 class="text-3xl sm:text-4xl font-bold mb-4">What We Do</h2>
-        <p class="text-muted-foreground text-lg max-w-2xl mx-auto">
-          Full-service music business and studio operations support from your first release to institutional studio deployments.
-        </p>
-      </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {SERVICES.map((service) => {
-          const Icon = iconMap[service.icon];
-          return (
-            <div class="group p-6 rounded-xl bg-card border border-border hover:border-primary/50 transition-all card-hover">
-              <div class="inline-flex p-3 rounded-lg bg-primary/10 text-primary mb-4">
-                {Icon && <Icon className="h-6 w-6" />}
-              </div>
-              <h3 class="text-lg font-semibold mb-2">{service.title}</h3>
-              <p class="text-muted-foreground text-sm leading-relaxed">{service.description}</p>
-            </div>
-          );
-        })}
-      </div>
-    </div>
-  </section>
-
   <!-- Why MusicMind -->
   <section id="about" class="py-24 bg-card">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -116,10 +144,10 @@ const iconMap: Record<string, any> = { Lightbulb, FileText, Scale, Award, Dollar
             Why MusicMind
           </Badge>
           <h2 class="text-3xl sm:text-4xl font-bold mb-6">
-            Built by People Who Build the Tools
+            Built by Producers, Educators &amp; Systems Architects
           </h2>
           <p class="text-muted-foreground text-lg mb-8">
-            We are musicians, studio engineers, educators, and software architects. In affiliation with <a href="https://buildforwardtech.com" class="text-primary underline">Build Forward Tech</a>, we ship commercial studio software alongside hands-on music business and catalog consulting.
+            Most music business advice glosses over the exact registration mechanics that determine whether you get paid or can enforce your rights. Together with <a href="https://midimaze.com" class="text-primary underline">Midimaze</a> and <a href="https://buildforwardtech.com" class="text-primary underline">Build Forward Tech</a>, we turn scattered industry rules into concrete checklists, calculators, and studio software.
           </p>
           <ul class="space-y-4">
             {WHY_MUSICMIND.map((item) => (
@@ -132,13 +160,35 @@ const iconMap: Record<string, any> = { Lightbulb, FileText, Scale, Award, Dollar
         </div>
 
         <div class="relative">
-          <div class="aspect-square rounded-2xl bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center">
-            <div class="text-center">
-              <div class="w-32 h-32 rounded-full bg-card border-4 border-primary/30 mx-auto mb-4 flex items-center justify-center">
-                <span class="text-5xl">🎵</span>
+          <div class="rounded-2xl bg-background border border-border p-6 shadow-xl">
+            <div class="text-xs font-mono uppercase text-primary font-semibold mb-2">
+              Quick Reference · The 4 Royalty &amp; Rights Pillars
+            </div>
+            <div class="space-y-3 text-sm">
+              <div class="p-3 rounded-lg bg-card border border-border">
+                <div class="font-bold text-foreground">1. U.S. Copyright Office (copyright.gov)</div>
+                <div class="text-xs text-muted-foreground mt-0.5">
+                  Registers your fixed MP3/WAV with the Library of Congress ($45 Single · $85 Unpublished Group of 2-10 · $65 GRAM Album). Unlocks federal lawsuits &amp; statutory damages.
+                </div>
               </div>
-              <p class="text-lg font-semibold gradient-text">Your music and studio deserve</p>
-              <p class="text-lg font-semibold gradient-text">real software and business systems.</p>
+              <div class="p-3 rounded-lg bg-card border border-border">
+                <div class="font-bold text-foreground">2. Distributor (DistroKid / TuneCore)</div>
+                <div class="text-xs text-muted-foreground mt-0.5">
+                  Mints ISRC &amp; UPC. Collects ONLY the Master (℗) streaming payout.
+                </div>
+              </div>
+              <div class="p-3 rounded-lg bg-card border border-border">
+                <div class="font-bold text-foreground">3. PRO (ASCAP or BMI) + The MLC (themlc.com)</div>
+                <div class="text-xs text-muted-foreground mt-0.5">
+                  PRO collects 50% Writer + 50% Publisher performance royalties (©) and mints ISWC. The MLC (Free) links your ISRC to your ISWC to pay U.S. streaming mechanicals (©).
+                </div>
+              </div>
+              <div class="p-3 rounded-lg bg-card border border-border">
+                <div class="font-bold text-foreground">4. SoundExchange (soundexchange.com)</div>
+                <div class="text-xs text-muted-foreground mt-0.5">
+                  Free registration as Featured Artist (45%) + Rights Owner (50%) to collect SiriusXM, Pandora &amp; digital radio Master (℗) royalties.
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -147,18 +197,18 @@ const iconMap: Record<string, any> = { Lightbulb, FileText, Scale, Award, Dollar
   </section>
 
   <!-- Contact Section -->
-  <section id="contact" class="py-24 bg-background">
+  <section id="contact" class="py-24 bg-background border-t border-border">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
         <div>
           <Badge variant="outline" className="mb-4">
-            Get Started
+            Collaborate or Get Help
           </Badge>
           <h2 class="text-3xl sm:text-4xl font-bold mb-6">
-            Let's Talk About Your Studio or Music Business
+            Need Help Auditing Your Catalog or Setting Up Your Release Pipeline?
           </h2>
           <p class="text-muted-foreground text-lg mb-8">
-            Whether you need multi-seat studio licenses for ScreenStage, custom Ableton/Pro Tools workflow engineering, or catalog and publishing administration, reach out below.
+            Whether you are preparing your first single, registering a multi-year back catalog, organizing co-writer split sheets, or deploying studio software, send us a note below.
           </p>
 
           <div class="space-y-4 mb-8">
@@ -172,23 +222,21 @@ const iconMap: Record<string, any> = { Lightbulb, FileText, Scale, Award, Dollar
                 {SITE_CONFIG.email}
               </a>
             </div>
-            <div class="flex items-center gap-3">
-              <div class="p-2 rounded-lg bg-primary/10 text-primary">
-                <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                </svg>
-              </div>
-              <a href={`tel:${SITE_CONFIG.phone.replace(/[^0-9+]/g, '')}`} class="text-foreground hover:text-primary transition-colors">
-                {SITE_CONFIG.phone}
-              </a>
-            </div>
           </div>
 
           <div class="p-6 rounded-xl bg-card border border-border">
-            <h3 class="font-semibold mb-2">Free 30-Minute Consultation</h3>
-            <p class="text-sm text-muted-foreground">
-              Tell us what you are building and we will map out your next steps across studio technology and music business operations.
+            <h3 class="font-semibold mb-2">Explore the Full Interactive Course on Midimaze</h3>
+            <p class="text-sm text-muted-foreground mb-3">
+              Read all five lessons with animated signal flows covering Composition (©) vs. Master (℗), U.S. Copyright Office Circulars 4/55/58, ASCAP vs. BMI, and The MLC + SoundExchange.
             </p>
+            <a
+              href="https://midimaze.com/articles/releasing-a-song-and-collecting-every-royalty"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-sm font-semibold text-primary hover:underline inline-flex items-center gap-1"
+            >
+              Open Midimaze Music Business Module →
+            </a>
           </div>
         </div>
 

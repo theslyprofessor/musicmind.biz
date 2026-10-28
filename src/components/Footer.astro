@@ -10,8 +10,7 @@ import { SITE_CONFIG, NAV_LINKS } from "@/lib/constants";
           <span class="gradient-text">MusicMind</span><span class="text-muted-foreground font-normal text-base">.biz</span>
         </a>
         <p class="text-muted-foreground max-w-md text-sm">
-          Music business agency offering entertainment consulting, legal guidance,
-          and business strategy for artists and industry professionals.
+          A-to-Z song release checklists, royalty accounting systems, catalog administration workflows, and studio software for independent artists, producers, and educators.
         </p>
       </div>
 
@@ -25,6 +24,16 @@ import { SITE_CONFIG, NAV_LINKS } from "@/lib/constants";
               </a>
             </li>
           ))}
+          <li>
+            <a
+              href="https://midimaze.com/articles/releasing-a-song-and-collecting-every-royalty"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-primary hover:underline transition-colors text-sm"
+            >
+              Midimaze Music Business Curriculum ↗
+            </a>
+          </li>
         </ul>
       </div>
 
@@ -36,10 +45,8 @@ import { SITE_CONFIG, NAV_LINKS } from "@/lib/constants";
               {SITE_CONFIG.email}
             </a>
           </li>
-          <li>
-            <a href={`tel:${SITE_CONFIG.phone.replace(/[^0-9+]/g, '')}`} class="hover:text-foreground transition-colors">
-              {SITE_CONFIG.phone}
-            </a>
+          <li class="text-xs text-muted-foreground/80 pt-2">
+            Educational resources and administrative workflow tools are provided for informational purposes and do not constitute formal legal representation.
           </li>
         </ul>
       </div>
@@ -64,7 +71,7 @@ import { SITE_CONFIG, NAV_LINKS } from "@/lib/constants";
         <svg class="h-3 w-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
           <path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
         </svg>
-        Built by Build Forward Tech
+        Built in affiliation with Build Forward Tech &amp; Midimaze
       </a>
     </div>
   </div>

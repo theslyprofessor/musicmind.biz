@@ -1,0 +1,202 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 820" width="1280" height="820" role="img" aria-label="Animated big-picture diagram of the two copyrights in every song (Musical Composition vs Sound Recording), how streams and broadcasts generate four separate royalty pipelines, and where the US Copyright Office fits.">
+  <defs>
+    <style>
+      text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Helvetica, Arial, sans-serif; }
+      .mono { font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace; }
+    </style>
+    <marker id="arr-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#f59e0b"/></marker>
+    <marker id="arr-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#38bdf8"/></marker>
+    <marker id="arr-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#22c55e"/></marker>
+    <marker id="arr-purple" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#a855f7"/></marker>
+    <marker id="arr-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#f87171"/></marker>
+  </defs>
+
+  <!-- Background -->
+  <rect x="0" y="0" width="1280" height="820" rx="8" fill="#18181b"/>
+
+  <!-- Header -->
+  <text x="32" y="38" fill="#f4f4f5" font-size="19" font-weight="700">The Two Copyrights in Every Recorded Song and the Four Royalty Collection Pipelines</text>
+  <text x="32" y="60" fill="#a1a1aa" font-size="13">Every recorded track contains two separate legal properties: the Musical Composition (©) and the Sound Recording / Master (℗). No single company collects all four pipelines.</text>
+
+  <!-- ================================================= -->
+  <!-- COLUMN 1: THE TWO COPYRIGHTS + US COPYRIGHT OFFICE -->
+  <!-- ================================================= -->
+  <text x="32" y="96" fill="#e4e4e7" font-size="12" font-weight="700" class="mono">1. TWO LEGAL ASSETS IN ONE SONG</text>
+
+  <!-- Composition Box (Amber) -->
+  <rect x="32" y="110" width="320" height="190" rx="6" fill="#09090b" stroke="#f59e0b" stroke-width="2.2"/>
+  <rect x="46" y="124" width="44" height="24" rx="4" fill="#451a03" stroke="#f59e0b" stroke-width="1.2"/>
+  <text x="68" y="141" text-anchor="middle" fill="#fbbf24" font-size="13" font-weight="700" class="mono">© PA</text>
+  <text x="100" y="141" fill="#fbbf24" font-size="15" font-weight="700">Musical Composition</text>
+  <text x="46" y="164" fill="#e4e4e7" font-size="12">Melody, chord progression, rhythm, and lyrics</text>
+  <text x="46" y="183" fill="#a1a1aa" font-size="11.5">Created when written down or recorded in a demo</text>
+
+  <rect x="46" y="196" width="292" height="44" rx="4" fill="#18181b" stroke="#3f3f46" stroke-width="1"/>
+  <text x="54" y="214" fill="#fde68a" font-size="11" font-weight="600">Owners: Songwriter(s) (50%) + Publisher(s) (50%)</text>
+  <text x="54" y="231" fill="#a1a1aa" font-size="10" class="mono">Global ID: ISWC (T-123.456.789-C) via PRO</text>
+
+  <rect x="46" y="248" width="292" height="38" rx="4" fill="#18181b" stroke="#3f3f46" stroke-width="1"/>
+  <text x="54" y="265" fill="#fbbf24" font-size="11" font-weight="600">Generates: Performance + Mechanical Royalties</text>
+  <text x="54" y="280" fill="#a1a1aa" font-size="10.5">Paid even when another artist covers your song</text>
+
+  <!-- Sound Recording Box (Blue) -->
+  <rect x="32" y="324" width="320" height="190" rx="6" fill="#09090b" stroke="#38bdf8" stroke-width="2.2"/>
+  <rect x="46" y="338" width="44" height="24" rx="4" fill="#082f49" stroke="#38bdf8" stroke-width="1.2"/>
+  <text x="68" y="355" text-anchor="middle" fill="#38bdf8" font-size="13" font-weight="700" class="mono">℗ SR</text>
+  <text x="100" y="355" fill="#38bdf8" font-size="15" font-weight="700">Sound Recording (Master)</text>
+  <text x="46" y="378" fill="#e4e4e7" font-size="12">The specific recorded audio performance (WAV)</text>
+  <text x="46" y="397" fill="#a1a1aa" font-size="11.5">Created when bounced or captured in your DAW</text>
+
+  <rect x="46" y="410" width="292" height="44" rx="4" fill="#18181b" stroke="#3f3f46" stroke-width="1"/>
+  <text x="54" y="428" fill="#bae6fd" font-size="11" font-weight="600">Owners: Independent Artist or Record Label</text>
+  <text x="54" y="445" fill="#a1a1aa" font-size="10" class="mono">Global ID: ISRC (US-XXX-26-00001) via Distro</text>
+
+  <rect x="46" y="462" width="292" height="38" rx="4" fill="#18181b" stroke="#3f3f46" stroke-width="1"/>
+  <text x="54" y="479" fill="#38bdf8" font-size="11" font-weight="600">Generates: Master Stream + Digital Radio Payouts</text>
+  <text x="54" y="494" fill="#a1a1aa" font-size="10.5">Paid only when THIS specific audio recording plays</text>
+
+  <!-- U.S. Copyright Office Box (Red / Legal Shield) -->
+  <rect x="32" y="544" width="320" height="176" rx="6" fill="#09090b" stroke="#f87171" stroke-width="2.2"/>
+  <text x="46" y="570" fill="#f87171" font-size="15" font-weight="700">U.S. Copyright Office (copyright.gov)</text>
+  <text x="46" y="590" fill="#e4e4e7" font-size="11.5">Library of Congress Federal Registration (eCO)</text>
+  <text x="46" y="610" fill="#fca5a5" font-size="11" font-weight="600">Does NOT collect royalties; registers legal title</text>
+  <rect x="46" y="622" width="292" height="84" rx="4" fill="#18181b" stroke="#3f3f46" stroke-width="1"/>
+  <text x="54" y="640" fill="#e4e4e7" font-size="10.5" class="mono">• Single Song (1 author owns © + ℗): $45</text>
+  <text x="54" y="657" fill="#e4e4e7" font-size="10.5" class="mono">• Group Unpublished (up to 10 works): $85</text>
+  <text x="54" y="674" fill="#e4e4e7" font-size="10.5" class="mono">• Group Album (2-20 tracks, SAME date): $65</text>
+  <text x="54" y="693" fill="#fca5a5" font-size="10" font-weight="600">Different release years cannot be bundled ($45/$65)</text>
+
+  <!-- Dashed legal links from Copyright Office to © and ℗ -->
+  <path d="M 192 544 L 192 514" fill="none" stroke="#f87171" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#arr-red)"/>
+  <path d="M 40 544 L 18 544 L 18 205 L 30 205" fill="none" stroke="#f87171" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#arr-red)"/>
+
+  <!-- ================================================= -->
+  <!-- COLUMN 2: LISTENING & USAGE PLATFORMS             -->
+  <!-- ================================================= -->
+  <text x="445" y="96" fill="#e4e4e7" font-size="12" font-weight="700" class="mono">2. WHERE LISTENERS HEAR THE TRACK</text>
+
+  <!-- Box A: Interactive Streaming DSPs -->
+  <rect x="445" y="130" width="300" height="175" rx="6" fill="#09090b" stroke="#a1a1aa" stroke-width="1.8"/>
+  <text x="463" y="156" fill="#f4f4f5" font-size="15" font-weight="700">Interactive Streaming (DSPs)</text>
+  <text x="463" y="176" fill="#a1a1aa" font-size="11.5">Spotify, Apple Music, Tidal, Amazon, YouTube</text>
+  <rect x="463" y="190" width="264" height="98" rx="4" fill="#18181b" stroke="#3f3f46" stroke-width="1"/>
+  <text x="473" y="210" fill="#e4e4e7" font-size="10.5" font-weight="600">Every 1 on-demand stream triggers 3 payouts:</text>
+  <text x="473" y="230" fill="#38bdf8" font-size="10.5">1. Master Recording Payout (~52% of revenue)</text>
+  <text x="473" y="248" fill="#fbbf24" font-size="10.5">2. Public Performance Royalty (~6-7% via PRO)</text>
+  <text x="473" y="266" fill="#4ade80" font-size="10.5">3. Mechanical Royalty (~6-8% via The MLC)</text>
+
+  <!-- Box B: Broadcast, Radio, TV & Live Venues -->
+  <rect x="445" y="335" width="300" height="135" rx="6" fill="#09090b" stroke="#f59e0b" stroke-width="1.8"/>
+  <text x="463" y="361" fill="#fbbf24" font-size="15" font-weight="700">Broadcast, TV, Film &amp; Live Venues</text>
+  <text x="463" y="381" fill="#a1a1aa" font-size="11.5">AM/FM Radio, TV Networks, Bars, Concerts</text>
+  <rect x="463" y="395" width="264" height="58" rx="4" fill="#18181b" stroke="#3f3f46" stroke-width="1"/>
+  <text x="473" y="415" fill="#fde68a" font-size="10.5">• Blanket performance licenses paid to PROs</text>
+  <text x="473" y="434" fill="#a1a1aa" font-size="10.5">• U.S. AM/FM terrestrial radio pays © only (no ℗)</text>
+
+  <!-- Box C: Non-Interactive Digital Radio -->
+  <rect x="445" y="500" width="300" height="145" rx="6" fill="#09090b" stroke="#a855f7" stroke-width="1.8"/>
+  <text x="463" y="526" fill="#d8b4fe" font-size="15" font-weight="700">Non-Interactive Digital Radio</text>
+  <text x="463" y="546" fill="#a1a1aa" font-size="11.5">SiriusXM Satellite, Pandora Radio, Webcasters</text>
+  <rect x="463" y="560" width="264" height="68" rx="4" fill="#18181b" stroke="#3f3f46" stroke-width="1"/>
+  <text x="473" y="580" fill="#e9d5ff" font-size="10.5">• Listener cannot pick or scrub song on demand</text>
+  <text x="473" y="598" fill="#d8b4fe" font-size="10.5">• Pays statutory Master (℗) via SoundExchange</text>
+  <text x="473" y="615" fill="#fbbf24" font-size="10.5">• Also pays Composition (©) performance via PRO</text>
+
+  <!-- ================================================= -->
+  <!-- COLUMN 3: THE 4 ROYALTY COLLECTION ORGANIZATIONS  -->
+  <!-- ================================================= -->
+  <text x="855" y="96" fill="#e4e4e7" font-size="12" font-weight="700" class="mono">3. THE 4 COLLECTION PIPELINES (REGISTER ALL 4)</text>
+
+  <!-- Pipeline 1: PRO (ASCAP / BMI) -->
+  <rect x="855" y="110" width="393" height="140" rx="6" fill="#09090b" stroke="#f59e0b" stroke-width="2.2"/>
+  <text x="873" y="135" fill="#fbbf24" font-size="15" font-weight="700">1. PRO: ASCAP or BMI (Public Performance ©)</text>
+  <text x="873" y="154" fill="#e4e4e7" font-size="11.5">The "radar" for public performances of the Composition</text>
+  <rect x="873" y="164" width="357" height="72" rx="4" fill="#18181b" stroke="#3f3f46" stroke-width="1"/>
+  <text x="883" y="182" fill="#fde68a" font-size="10.5" font-weight="600">Splits every dollar 50% Writer Share + 50% Publisher Share</text>
+  <text x="883" y="199" fill="#a1a1aa" font-size="10">• Claim BOTH shares if self-published (BMI 200% / ASCAP Self-Pub)</text>
+  <text x="883" y="216" fill="#fca5a5" font-size="10">• Does NOT register federal copyright or collect mechanicals</text>
+
+  <!-- Pipeline 2: The MLC -->
+  <rect x="855" y="268" width="393" height="140" rx="6" fill="#09090b" stroke="#22c55e" stroke-width="2.2"/>
+  <text x="873" y="293" fill="#4ade80" font-size="15" font-weight="700">2. The MLC (Digital Mechanical Royalties ©)</text>
+  <text x="873" y="312" fill="#e4e4e7" font-size="11.5">Mechanical Licensing Collective (themlc.com - $0 Free)</text>
+  <rect x="873" y="322" width="357" height="72" rx="4" fill="#18181b" stroke="#3f3f46" stroke-width="1"/>
+  <text x="883" y="340" fill="#86efac" font-size="10.5" font-weight="600">Collects U.S. interactive streaming mechanicals (17 U.S.C. § 115)</text>
+  <text x="883" y="357" fill="#a1a1aa" font-size="10">• Match your song's ISWC (from PRO) to its ISRC (from Distributor)</text>
+  <text x="883" y="374" fill="#fca5a5" font-size="10">• Missing gap #1: ASCAP/BMI and DistroKid do NOT collect this</text>
+
+  <!-- Pipeline 3: Distributor (DistroKid / TuneCore / CD Baby) -->
+  <rect x="855" y="426" width="393" height="140" rx="6" fill="#09090b" stroke="#38bdf8" stroke-width="2.2"/>
+  <text x="873" y="451" fill="#38bdf8" font-size="15" font-weight="700">3. Distributor: DistroKid / TuneCore (Master ℗)</text>
+  <text x="873" y="470" fill="#e4e4e7" font-size="11.5">Delivers WAV + metadata to DSPs and assigns ISRC + UPC</text>
+  <rect x="873" y="480" width="357" height="72" rx="4" fill="#18181b" stroke="#3f3f46" stroke-width="1"/>
+  <text x="883" y="498" fill="#bae6fd" font-size="10.5" font-weight="600">Collects Master Streaming &amp; Download Royalties (~52% of pie)</text>
+  <text x="883" y="515" fill="#a1a1aa" font-size="10">• Pays the Master Owner (you or label) per stream on DSPs</text>
+  <text x="883" y="532" fill="#fca5a5" font-size="10">• Does NOT register copyright or collect PRO / MLC publishing</text>
+
+  <!-- Pipeline 4: SoundExchange -->
+  <rect x="855" y="584" width="393" height="140" rx="6" fill="#09090b" stroke="#a855f7" stroke-width="2.2"/>
+  <text x="873" y="609" fill="#d8b4fe" font-size="15" font-weight="700">4. SoundExchange (Digital Radio Master ℗)</text>
+  <text x="873" y="628" fill="#e4e4e7" font-size="11.5">Statutory non-interactive digital performance collector ($0 Free)</text>
+  <rect x="873" y="638" width="357" height="72" rx="4" fill="#18181b" stroke="#3f3f46" stroke-width="1"/>
+  <text x="883" y="656" fill="#e9d5ff" font-size="10.5" font-weight="600">Splits Master digital radio royalties by federal statute:</text>
+  <text x="883" y="673" fill="#a1a1aa" font-size="10">• 45% Featured Artist | 50% Master Owner | 5% Session Musicians</text>
+  <text x="883" y="690" fill="#86efac" font-size="10">• Self-releasing artist who recorded &amp; owns master collects 95%</text>
+
+  <!-- ================================================= -->
+  <!-- ANIMATED WIRES & ROYALTY FLOW PARTICLES           -->
+  <!-- ================================================= -->
+
+  <!-- Left -> Center: Composition (©) to Platforms -->
+  <path d="M 352 175 L 443 175" fill="none" stroke="#f59e0b" stroke-width="2.4" marker-end="url(#arr-amber)"/>
+  <circle r="4.5" fill="#fbbf24"><animateMotion dur="1.4s" repeatCount="indefinite" path="M352,175 L443,175"/></circle>
+
+  <path d="M 352 240 L 405 240 L 405 375 L 443 375" fill="none" stroke="#f59e0b" stroke-width="2" marker-end="url(#arr-amber)"/>
+  <circle r="4" fill="#fbbf24"><animateMotion dur="1.8s" repeatCount="indefinite" path="M352,240 L405,240 L405,375 L443,375"/></circle>
+
+  <!-- Left -> Center: Master (℗) to Platforms -->
+  <path d="M 352 365 L 385 365 L 385 245 L 443 245" fill="none" stroke="#38bdf8" stroke-width="2.4" marker-end="url(#arr-blue)"/>
+  <circle r="4.5" fill="#38bdf8"><animateMotion dur="1.6s" repeatCount="indefinite" path="M352,365 L385,365 L385,245 L443,245"/></circle>
+
+  <path d="M 352 455 L 405 455 L 405 555 L 443 555" fill="none" stroke="#a855f7" stroke-width="2.2" marker-end="url(#arr-purple)"/>
+  <circle r="4" fill="#d8b4fe"><animateMotion dur="1.7s" repeatCount="indefinite" path="M352,455 L405,455 L405,555 L443,555"/></circle>
+
+  <!-- Center -> Right: DSPs to PRO (Performance ©) -->
+  <path d="M 745 165 L 853 165" fill="none" stroke="#f59e0b" stroke-width="2.4" marker-end="url(#arr-amber)"/>
+  <circle r="4.5" fill="#fbbf24"><animateMotion dur="1.3s" repeatCount="indefinite" path="M745,165 L853,165"/></circle>
+
+  <!-- Center -> Right: Broadcast/Live to PRO (Performance ©) -->
+  <path d="M 745 385 L 785 385 L 785 200 L 853 200" fill="none" stroke="#f59e0b" stroke-width="2.4" marker-end="url(#arr-amber)"/>
+  <circle r="4.5" fill="#fbbf24"><animateMotion dur="1.9s" repeatCount="indefinite" path="M745,385 L785,385 L785,200 L853,200"/></circle>
+
+  <!-- Center -> Right: DSPs to The MLC (Mechanical ©) -->
+  <path d="M 745 215 L 805 215 L 805 335 L 853 335" fill="none" stroke="#22c55e" stroke-width="2.6" marker-end="url(#arr-green)"/>
+  <circle r="4.5" fill="#4ade80"><animateMotion dur="1.5s" repeatCount="indefinite" path="M745,215 L805,215 L805,335 L853,335"/></circle>
+
+  <!-- Center -> Right: DSPs to Distributor (Master ℗) -->
+  <path d="M 745 265 L 825 265 L 825 495 L 853 495" fill="none" stroke="#38bdf8" stroke-width="2.8" marker-end="url(#arr-blue)"/>
+  <circle r="5" fill="#38bdf8"><animateMotion dur="1.4s" repeatCount="indefinite" path="M745,265 L825,265 L825,495 L853,495"/></circle>
+
+  <!-- Center -> Right: Non-Interactive Digital Radio to SoundExchange (Master ℗) -->
+  <path d="M 745 585 L 805 585 L 805 650 L 853 650" fill="none" stroke="#a855f7" stroke-width="2.6" marker-end="url(#arr-purple)"/>
+  <circle r="4.5" fill="#d8b4fe"><animateMotion dur="1.5s" repeatCount="indefinite" path="M745,585 L805,585 L805,650 L853,650"/></circle>
+
+  <!-- ================================================= -->
+  <!-- BOTTOM LEGEND / SUMMARY BAR                       -->
+  <!-- ================================================= -->
+  <rect x="32" y="742" width="1216" height="56" rx="6" fill="#09090b" stroke="#3f3f46" stroke-width="1.2"/>
+  <circle cx="54" cy="770" r="6" fill="#fbbf24"/>
+  <text x="68" y="774" fill="#e4e4e7" font-size="11.5" font-weight="600">Composition Perf. (PRO: ASCAP/BMI)</text>
+
+  <circle cx="310" cy="770" r="6" fill="#4ade80"/>
+  <text x="324" y="774" fill="#e4e4e7" font-size="11.5" font-weight="600">Composition Mech. (The MLC)</text>
+
+  <circle cx="535" cy="770" r="6" fill="#38bdf8"/>
+  <text x="549" y="774" fill="#e4e4e7" font-size="11.5" font-weight="600">Master Stream (Distributor: DistroKid)</text>
+
+  <circle cx="810" cy="770" r="6" fill="#d8b4fe"/>
+  <text x="824" y="774" fill="#e4e4e7" font-size="11.5" font-weight="600">Master Digital Radio (SoundExchange)</text>
+
+  <circle cx="1075" cy="770" r="6" fill="#f87171"/>
+  <text x="1089" y="774" fill="#fca5a5" font-size="11.5" font-weight="600">Legal Title (copyright.gov)</text>
+</svg>

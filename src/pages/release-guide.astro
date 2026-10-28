@@ -1,0 +1,26 @@
+---
+import PageLayout from "@/layouts/PageLayout.astro";
+import { Badge } from "@/components/ui/badge";
+import { ReleaseGuideHub } from "@/components/react/ReleaseGuideHub";
+---
+
+<PageLayout
+  title="A-to-Z Song Release, Copyright & Royalty Checklist"
+  description="Interactive 6-step song release checklist, Fixed vs. Registered Copyright guide (17 U.S.C. § 102 vs. § 411), U.S. Copyright Office fee calculator ($45/$65/$85), and ASCAP/BMI/MLC/SoundExchange royalty accounting."
+>
+  <section class="pt-28 pb-20 bg-background">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="mb-12">
+        <Badge variant="accent" className="mb-3">MusicMind Release &amp; Accounting Guide</Badge>
+        <h1 class="text-3xl sm:text-5xl font-bold mb-4">
+          A-to-Z Song Release, Copyright &amp; Royalty Checklist
+        </h1>
+        <p class="text-muted-foreground text-lg max-w-3xl">
+          Interactive reference for registering both copyrights in your song (Composition © and Master ℗), calculating U.S. Copyright Office filing fees, and claiming 100% of your DistroKid, ASCAP/BMI, MLC, and SoundExchange royalties.
+        </p>
+      </div>
+
+      <ReleaseGuideHub client:load />
+    </div>
+  </section>
+</PageLayout>

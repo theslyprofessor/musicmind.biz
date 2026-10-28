@@ -1,0 +1,128 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 680" width="1280" height="680" role="img" aria-label="Animated six-step chronological pipeline for releasing a song properly: 1. Master Bounce and Split Sheet, 2. U.S. Copyright Office Registration before release, 3. Digital Distributor for ISRC and UPC, 4. PRO Registration for ISWC, 5. The MLC Registration to link ISWC and ISRC, and 6. SoundExchange Registration.">
+  <defs>
+    <style>
+      text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Helvetica, Arial, sans-serif; }
+      .mono { font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace; }
+    </style>
+    <marker id="arr-cyan" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#38bdf8"/></marker>
+    <marker id="arr-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#f59e0b"/></marker>
+    <marker id="arr-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#22c55e"/></marker>
+  </defs>
+
+  <rect x="0" y="0" width="1280" height="680" rx="8" fill="#18181b"/>
+
+  <!-- Header -->
+  <text x="32" y="38" fill="#f4f4f5" font-size="19" font-weight="700">Complete Six-Step Song Release Sequence: From Studio Master to Full Royalty Collection</text>
+  <text x="32" y="60" fill="#a1a1aa" font-size="13">Follow this exact order so your songs qualify for unpublished group copyright rates and your ISRC and ISWC codes link cleanly.</text>
+
+  <!-- ================================================= -->
+  <!-- ROW 1: PRE-RELEASE STEPS (STEPS 1, 2, 3)          -->
+  <!-- ================================================= -->
+
+  <!-- STEP 1 -->
+  <rect x="32" y="95" width="372" height="230" rx="6" fill="#09090b" stroke="#a1a1aa" stroke-width="2"/>
+  <rect x="48" y="111" width="110" height="24" rx="4" fill="#27272a"/>
+  <text x="103" y="127" text-anchor="middle" fill="#f4f4f5" font-size="11.5" font-weight="700" class="mono">STEP 1 (STUDIO)</text>
+  <text x="48" y="156" fill="#f4f4f5" font-size="15" font-weight="700">Master Files + Signed Split Sheet</text>
+  <text x="48" y="178" fill="#e4e4e7" font-size="11.5">• Export 24-bit WAV Master + Instrumental + Stems</text>
+  <text x="48" y="198" fill="#e4e4e7" font-size="11.5">• Sign a written Split Sheet with all collaborators:</text>
+  <text x="48" y="216" fill="#fde68a" font-size="11" class="mono">  - Composition (©) % + PRO + IPI # per writer</text>
+  <text x="48" y="233" fill="#bae6fd" font-size="11" class="mono">  - Sound Recording (℗) % per artist/producer</text>
+  <rect x="48" y="255" width="340" height="52" rx="4" fill="#18181b" stroke="#3f3f46" stroke-width="1"/>
+  <text x="60" y="274" fill="#a1a1aa" font-size="10.5">Output needed for next steps:</text>
+  <text x="60" y="292" fill="#f4f4f5" font-size="11" font-weight="600">Final WAV audio + exact co-writer percentages + IPIs</text>
+
+  <!-- STEP 2 -->
+  <rect x="454" y="95" width="372" height="230" rx="6" fill="#09090b" stroke="#f87171" stroke-width="2.2"/>
+  <rect x="470" y="111" width="165" height="24" rx="4" fill="#450a0a" stroke="#f87171" stroke-width="1"/>
+  <text x="552" y="127" text-anchor="middle" fill="#fca5a5" font-size="11.5" font-weight="700" class="mono">STEP 2 (PRE-RELEASE)</text>
+  <text x="470" y="156" fill="#f87171" font-size="15" font-weight="700">U.S. Copyright Office (copyright.gov)</text>
+  <text x="470" y="178" fill="#e4e4e7" font-size="11.5">• File BEFORE your release date while unpublished:</text>
+  <text x="470" y="197" fill="#86efac" font-size="11" class="mono">  - Up to 10 unpublished works = $85 total (GRUW)</text>
+  <text x="470" y="214" fill="#86efac" font-size="11" class="mono">  - 1 song by 1 sole creator/owner = $45 Single App</text>
+  <text x="470" y="233" fill="#a1a1aa" font-size="11">• Or within 3 months of release ($65 Album GRAM)</text>
+  <rect x="470" y="255" width="340" height="52" rx="4" fill="#18181b" stroke="#3f3f46" stroke-width="1"/>
+  <text x="482" y="274" fill="#a1a1aa" font-size="10.5">Output minted:</text>
+  <text x="482" y="292" fill="#fca5a5" font-size="11" font-weight="600">Federal Copyright Registration # (PAu / SRu / PA / SR)</text>
+
+  <!-- STEP 3 -->
+  <rect x="876" y="95" width="372" height="230" rx="6" fill="#09090b" stroke="#38bdf8" stroke-width="2.2"/>
+  <rect x="892" y="111" width="180" height="24" rx="4" fill="#082f49" stroke="#38bdf8" stroke-width="1"/>
+  <text x="982" y="127" text-anchor="middle" fill="#bae6fd" font-size="11.5" font-weight="700" class="mono">STEP 3 (3-4 WKS EARLY)</text>
+  <text x="892" y="156" fill="#38bdf8" font-size="15" font-weight="700">Distributor (DistroKid / TuneCore)</text>
+  <text x="892" y="178" fill="#e4e4e7" font-size="11.5">• Upload 24-bit WAV, cover art, lyrics, songwriter</text>
+  <text x="892" y="195" fill="#e4e4e7" font-size="11.5">  legal names, and scheduled release date</text>
+  <text x="892" y="214" fill="#a1a1aa" font-size="11">• Delivers to Spotify, Apple Music, Tidal, Amazon</text>
+  <text x="892" y="233" fill="#a1a1aa" font-size="11">• Collects Master (℗) streaming royalties only</text>
+  <rect x="892" y="255" width="340" height="52" rx="4" fill="#18181b" stroke="#3f3f46" stroke-width="1"/>
+  <text x="904" y="274" fill="#a1a1aa" font-size="10.5">Output minted (copy these immediately!):</text>
+  <text x="904" y="292" fill="#38bdf8" font-size="10.5" font-weight="700" class="mono">ISRC Code (per track) + UPC Barcode (per release)</text>
+
+  <!-- ================================================= -->
+  <!-- ROW 2: ROYALTY LINKING STEPS (STEPS 4, 5, 6)      -->
+  <!-- ================================================= -->
+
+  <!-- STEP 4 -->
+  <rect x="32" y="395" width="372" height="230" rx="6" fill="#09090b" stroke="#f59e0b" stroke-width="2.2"/>
+  <rect x="48" y="411" width="150" height="24" rx="4" fill="#451a03" stroke="#f59e0b" stroke-width="1"/>
+  <text x="123" y="427" text-anchor="middle" fill="#fde68a" font-size="11.5" font-weight="700" class="mono">STEP 4 (COMPOSITION)</text>
+  <text x="48" y="456" fill="#fbbf24" font-size="15" font-weight="700">Register Work with PRO (ASCAP / BMI)</text>
+  <text x="48" y="478" fill="#e4e4e7" font-size="11.5">• Register song title, co-writer IPI numbers, splits,</text>
+  <text x="48" y="495" fill="#e4e4e7" font-size="11.5">  and paste the ISRC code from Step 3</text>
+  <text x="48" y="514" fill="#fde68a" font-size="11">• Claim both 50% Writer + 50% Publisher shares</text>
+  <text x="48" y="531" fill="#fde68a" fill-opacity="0.9" font-size="11">  (200% on BMI or self-published on ASCAP)</text>
+  <rect x="48" y="555" width="340" height="52" rx="4" fill="#18181b" stroke="#3f3f46" stroke-width="1"/>
+  <text x="60" y="574" fill="#a1a1aa" font-size="10.5">Output minted:</text>
+  <text x="60" y="592" fill="#fbbf24" font-size="10.5" font-weight="700" class="mono">ISWC Code (T-123.456.789-C) for the Composition</text>
+
+  <!-- STEP 5 -->
+  <rect x="454" y="395" width="372" height="230" rx="6" fill="#09090b" stroke="#22c55e" stroke-width="2.2"/>
+  <rect x="470" y="411" width="150" height="24" rx="4" fill="#052e16" stroke="#22c55e" stroke-width="1"/>
+  <text x="545" y="427" text-anchor="middle" fill="#86efac" font-size="11.5" font-weight="700" class="mono">STEP 5 (MECHANICALS)</text>
+  <text x="470" y="456" fill="#4ade80" font-size="15" font-weight="700">Match ISWC + ISRC in The MLC</text>
+  <text x="470" y="478" fill="#e4e4e7" font-size="11.5">• Log in to themlc.com (free for self-published</text>
+  <text x="470" y="495" fill="#e4e4e7" font-size="11.5">  songwriters; pays 100% with zero commission)</text>
+  <text x="470" y="514" fill="#86efac" font-size="11">• Link your Composition (ISWC from Step 4) to your</text>
+  <text x="470" y="531" fill="#86efac" font-size="11">  Sound Recording (ISRC from Step 3)</text>
+  <rect x="470" y="555" width="340" height="52" rx="4" fill="#18181b" stroke="#3f3f46" stroke-width="1"/>
+  <text x="482" y="574" fill="#a1a1aa" font-size="10.5">Pipeline unlocked:</text>
+  <text x="482" y="592" fill="#4ade80" font-size="11" font-weight="700">U.S. Interactive Streaming Mechanical Royalties (©)</text>
+
+  <!-- STEP 6 -->
+  <rect x="876" y="395" width="372" height="230" rx="6" fill="#09090b" stroke="#a855f7" stroke-width="2.2"/>
+  <rect x="892" y="411" width="165" height="24" rx="4" fill="#3b0764" stroke="#a855f7" stroke-width="1"/>
+  <text x="974" y="427" text-anchor="middle" fill="#e9d5ff" font-size="11.5" font-weight="700" class="mono">STEP 6 (DIGITAL RADIO)</text>
+  <text x="892" y="456" fill="#d8b4fe" font-size="15" font-weight="700">Register ISRC with SoundExchange</text>
+  <text x="892" y="478" fill="#e4e4e7" font-size="11.5">• Log in to soundexchange.com (free registration)</text>
+  <text x="892" y="497" fill="#e4e4e7" font-size="11.5">• Register both as Featured Artist (45% share) AND</text>
+  <text x="892" y="514" fill="#e4e4e7" font-size="11.5">  Rights Owner (50% share) if you own your master</text>
+  <text x="892" y="533" fill="#a1a1aa" font-size="11">• Submit track metadata + ISRC code from Step 3</text>
+  <rect x="892" y="555" width="340" height="52" rx="4" fill="#18181b" stroke="#3f3f46" stroke-width="1"/>
+  <text x="904" y="574" fill="#a1a1aa" font-size="10.5">Pipeline unlocked:</text>
+  <text x="904" y="592" fill="#d8b4fe" font-size="11" font-weight="700">SiriusXM, Pandora &amp; Digital Radio Master Royalties (℗)</text>
+
+  <!-- ================================================= -->
+  <!-- ANIMATED CONNECTOR ARROWS                         -->
+  <!-- ================================================= -->
+  <!-- Step 1 -> Step 2 -->
+  <path d="M 404 210 L 452 210" fill="none" stroke="#38bdf8" stroke-width="2.6" marker-end="url(#arr-cyan)"/>
+  <circle r="4.5" fill="#38bdf8"><animateMotion dur="0.9s" repeatCount="indefinite" path="M404,210 L452,210"/></circle>
+
+  <!-- Step 2 -> Step 3 -->
+  <path d="M 826 210 L 874 210" fill="none" stroke="#38bdf8" stroke-width="2.6" marker-end="url(#arr-cyan)"/>
+  <circle r="4.5" fill="#38bdf8"><animateMotion dur="0.9s" repeatCount="indefinite" path="M826,210 L874,210"/></circle>
+
+  <!-- Step 3 -> Step 4 (carries ISRC across row break) -->
+  <path d="M 1062 325 L 1062 360 L 218 360 L 218 393" fill="none" stroke="#f59e0b" stroke-width="2.6" marker-end="url(#arr-amber)"/>
+  <circle r="5" fill="#fbbf24"><animateMotion dur="2.2s" repeatCount="indefinite" path="M1062,325 L1062,360 L218,360 L218,393"/></circle>
+  <rect x="510" y="348" width="260" height="22" rx="4" fill="#451a03" stroke="#f59e0b" stroke-width="1"/>
+  <text x="640" y="363" text-anchor="middle" fill="#fde68a" font-size="11" font-weight="700" class="mono">Pass ISRC from Distributor -> PRO</text>
+
+  <!-- Step 4 -> Step 5 (carries ISWC + ISRC) -->
+  <path d="M 404 510 L 452 510" fill="none" stroke="#22c55e" stroke-width="2.6" marker-end="url(#arr-green)"/>
+  <circle r="4.5" fill="#4ade80"><animateMotion dur="0.9s" repeatCount="indefinite" path="M404,510 L452,510"/></circle>
+
+  <!-- Step 5 -> Step 6 -->
+  <path d="M 826 510 L 874 510" fill="none" stroke="#22c55e" stroke-width="2.6" marker-end="url(#arr-green)"/>
+  <circle r="4.5" fill="#4ade80"><animateMotion dur="0.9s" repeatCount="indefinite" path="M826,510 L874,510"/></circle>
+</svg>
