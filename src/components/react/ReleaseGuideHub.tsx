@@ -863,12 +863,217 @@ export function ReleaseGuideHub() {
           </div>
         </div>
 
-        <p className="text-sm text-muted-foreground mb-6 max-w-3xl">
+        <p className="text-sm text-muted-foreground mb-5 max-w-3xl">
           Simulate <strong>$9,950</strong> of independent song revenue across
           interactive streaming, public performance, mechanicals, and digital
-          radio. Toggle each registration below to see what hits your bank
-          account versus what sits uncollected.
+          radio. Click any pipe valve on the animated money funnel or toggle
+          each card below to see what routes to your bank account versus what
+          leaks into the unclaimed &quot;Black Box&quot; pool.
         </p>
+
+        {/* Animated SVG Money Funnel */}
+        <div className="mb-6">
+          <svg
+            viewBox="0 0 960 340"
+            className="w-full h-auto rounded-xl border border-border bg-[#06070a]"
+            role="img"
+            aria-label="Interactive animated money funnel showing 6 royalty pipes routing either to your bank account or the unclaimed black box"
+          >
+            <rect
+              x="16"
+              y="30"
+              width="175"
+              height="280"
+              rx="12"
+              fill="#0f172a"
+              stroke="#38bdf8"
+              strokeWidth="1.5"
+            />
+            <text x="30" y="60" fill="#38bdf8" fontSize="11" fontFamily="monospace" fontWeight="bold">
+              LISTENER &amp; RADIO POOL
+            </text>
+            <text x="30" y="84" fill="#f8fafc" fontSize="15" fontWeight="bold">
+              Total Earned:
+            </text>
+            <text x="30" y="112" fill="#38bdf8" fontSize="22" fontFamily="monospace" fontWeight="bold">
+              ${totalAvailable.toLocaleString()}
+            </text>
+            <text x="30" y="142" fill="#94a3b8" fontSize="11">
+              • Spotify / Apple Music
+            </text>
+            <text x="30" y="160" fill="#94a3b8" fontSize="11">
+              • YouTube / Tidal / Amazon
+            </text>
+            <text x="30" y="178" fill="#94a3b8" fontSize="11">
+              • AM/FM Radio &amp; TV
+            </text>
+            <text x="30" y="196" fill="#94a3b8" fontSize="11">
+              • SiriusXM &amp; Pandora
+            </text>
+            <text x="30" y="214" fill="#94a3b8" fontSize="11">
+              • Live Venues &amp; Bars
+            </text>
+            <text x="30" y="255" fill="#cbd5e1" fontSize="10" fontFamily="monospace">
+              Click any pipe valve -&gt;
+            </text>
+            <text x="30" y="270" fill="#cbd5e1" fontSize="10" fontFamily="monospace">
+              to open or close it!
+            </text>
+
+            <rect
+              x="725"
+              y="24"
+              width="218"
+              height="142"
+              rx="12"
+              fill="#052e16"
+              stroke="#10b981"
+              strokeWidth="2"
+            />
+            <text x="742" y="50" fill="#6ee7b7" fontSize="11" fontFamily="monospace" fontWeight="bold">
+              YOUR BANK ACCOUNT ({Math.round((totalCollected / totalAvailable) * 100)}%)
+            </text>
+            <text x="742" y="84" fill="#34d399" fontSize="26" fontFamily="monospace" fontWeight="bold">
+              ${totalCollected.toLocaleString()}
+            </text>
+            <text x="742" y="108" fill="#a7f3d0" fontSize="11">
+              Successfully routed &amp; paid out
+            </text>
+            <rect x="742" y="122" width="184" height="10" rx="5" fill="#064e3b" />
+            <rect
+              x="742"
+              y="122"
+              width={Math.max(4, Math.round((184 * totalCollected) / totalAvailable))}
+              height="10"
+              rx="5"
+              fill="#10b981"
+            />
+
+            <rect
+              x="725"
+              y="182"
+              width="218"
+              height="134"
+              rx="12"
+              fill="#3b0808"
+              stroke="#ef4444"
+              strokeWidth="2"
+            />
+            <text x="742" y="208" fill="#fca5a5" fontSize="11" fontFamily="monospace" fontWeight="bold">
+              UNCLAIMED &quot;BLACK BOX&quot; ({Math.round((totalMissed / totalAvailable) * 100)}%)
+            </text>
+            <text x="742" y="242" fill="#f87171" fontSize="26" fontFamily="monospace" fontWeight="bold">
+              ${totalMissed.toLocaleString()}
+            </text>
+            <text x="742" y="266" fill="#fecaca" fontSize="11">
+              Frozen at MLC / PRO / SoundEx
+            </text>
+            <text x="742" y="284" fill="#fca5a5" fontSize="10" fontFamily="monospace">
+              {totalMissed > 0
+                ? "WARNING: Leaking unclaimed money!"
+                : "ZERO LEAKS: 100% captured!"}
+            </text>
+
+            {royaltyBuckets.map((b, idx) => {
+              const y = 44 + idx * 50;
+              const colors = ["#38bdf8", "#fbbf24", "#f59e0b", "#a78bfa", "#2dd4bf", "#34d399"];
+              const pipeColor = colors[idx] || "#38bdf8";
+              const inPath = `M 191 ${y} C 245 ${y}, 265 ${y}, 315 ${y}`;
+              const outTargetY = b.active ? 95 : 248;
+              const outPath = `M 585 ${y} C 645 ${y}, 665 ${outTargetY}, 725 ${outTargetY}`;
+              const strokeColor = b.active ? pipeColor : "#ef4444";
+
+              return (
+                <g
+                  key={b.id}
+                  onClick={b.toggle}
+                  className="cursor-pointer"
+                  role="button"
+                  tabIndex={0}
+                >
+                  <path
+                    d={inPath}
+                    fill="none"
+                    stroke={pipeColor}
+                    strokeWidth="3"
+                    strokeOpacity="0.65"
+                  />
+                  <path
+                    d={outPath}
+                    fill="none"
+                    stroke={strokeColor}
+                    strokeWidth={b.active ? "3.5" : "2.5"}
+                    strokeDasharray={b.active ? undefined : "6 5"}
+                    strokeOpacity="0.9"
+                  />
+                  <circle r="4.5" fill={b.active ? pipeColor : "#f87171"}>
+                    <animateMotion
+                      dur={`${1.5 + idx * 0.18}s`}
+                      repeatCount="indefinite"
+                      path={outPath}
+                    />
+                  </circle>
+                  <circle r="3.5" fill={pipeColor}>
+                    <animateMotion
+                      dur={`${1.3 + idx * 0.15}s`}
+                      repeatCount="indefinite"
+                      path={inPath}
+                    />
+                  </circle>
+                  <rect
+                    x="315"
+                    y={y - 19}
+                    width="270"
+                    height="38"
+                    rx="8"
+                    fill={b.active ? "#0f172a" : "#2a0a0a"}
+                    stroke={strokeColor}
+                    strokeWidth="1.8"
+                  />
+                  <text
+                    x="327"
+                    y={y - 3}
+                    fill="#f8fafc"
+                    fontSize="11"
+                    fontWeight="bold"
+                  >
+                    {idx + 1}. {b.label}
+                  </text>
+                  <text
+                    x="327"
+                    y={y + 12}
+                    fill="#94a3b8"
+                    fontSize="9.5"
+                    fontFamily="monospace"
+                  >
+                    {b.org}
+                  </text>
+                  <text
+                    x="573"
+                    y={y - 2}
+                    textAnchor="end"
+                    fill={b.active ? "#34d399" : "#f87171"}
+                    fontSize="12"
+                    fontFamily="monospace"
+                    fontWeight="bold"
+                  >
+                    ${b.amount.toLocaleString()}
+                  </text>
+                  <text
+                    x="573"
+                    y={y + 12}
+                    textAnchor="end"
+                    fill={b.active ? "#6ee7b7" : "#fca5a5"}
+                    fontSize="9"
+                    fontFamily="monospace"
+                  >
+                    {b.active ? "OPEN -> BANK" : "CLOSED -> LEAK"}
+                  </text>
+                </g>
+              );
+            })}
+          </svg>
+        </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
           {royaltyBuckets.map((b) => (
