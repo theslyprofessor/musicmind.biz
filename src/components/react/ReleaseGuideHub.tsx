@@ -1213,6 +1213,419 @@ export function ReleaseGuideHub() {
           )}
         </div>
       </div>
+
+      {/* 6. INTERACTIVE SPLIT SHEET GENERATOR & LISTENING SESSION QC */}
+      <SplitSheetAndListeningSessionSection />
     </div>
   );
 }
+
+interface SplitCollaborator {
+  id: string;
+  legalName: string;
+  role: string;
+  pro: "ASCAP" | "BMI" | "SESAC" | "None";
+  writerIpi: string;
+  publisherName: string;
+  compPct: number;
+  masterPct: number;
+}
+
+const LISTENING_QC_ITEMS = [
+  {
+    id: "qc-peak",
+    stage: "1. Mix & Master QC",
+    title: "True Peak Ceiling <= -1.0 dBTP",
+    spec: "ITU-R BS.1770 True Peak Limiter",
+    detail: "Prevents inter-sample clipping when Spotify (Ogg) and Apple Music (AAC) transcode your WAV.",
+  },
+  {
+    id: "qc-mono",
+    stage: "1. Mix & Master QC",
+    title: "Mono Fold-Down & Phase Check",
+    spec: "Correlation >= 0.0 on Low End & Vocal",
+    detail: "Sum master bus to mono to verify kick, bass, and center vocal do not cancel out on phones/Bluetooth.",
+  },
+  {
+    id: "qc-4sys",
+    stage: "1. Mix & Master QC",
+    title: "4-System Translation Session",
+    spec: "Studio Monitors · Car · AirPods · Phone",
+    detail: "Listen start-to-finish without touching faders and verify clean 200 ms fade-out tail.",
+  },
+  {
+    id: "alt-wav",
+    stage: "2. Alternate Bounces",
+    title: "Main Master + Clean Edit (24-bit WAV)",
+    spec: "24-bit / 44.1 or 48 kHz Uncompressed WAV",
+    detail: "Never upload MP3s to your distributor; export native 24-bit WAV masters.",
+  },
+  {
+    id: "alt-sync",
+    stage: "2. Alternate Bounces",
+    title: "Instrumental + TV Track + Acapella + Stems",
+    spec: "Film/TV Sync & Live Performance Pack",
+    detail: "Music supervisors require a 24-bit Instrumental WAV immediately. Bounce it before archiving the session.",
+  },
+  {
+    id: "leg-split",
+    stage: "3. Split & Copyright",
+    title: "Signed Split Sheet (100% © and 100% ℗)",
+    spec: "Legal Names + PRO + Writer IPI Numbers",
+    detail: "Lock in Composition (©) and Master (℗) percentages with all collaborators in the room.",
+  },
+];
+
+function SplitSheetAndListeningSessionSection() {
+  const [songTitle, setSongTitle] = useState("Midnight at Studio A");
+  const [artistName, setArtistName] = useState("The Jaguar Collective");
+  const [releaseDate, setReleaseDate] = useState("2026-11-15");
+  const [isrc, setIsrc] = useState("US-S1Z-26-04120");
+  const [iswc, setIswc] = useState("T-310.482.911-4");
+  const [copied, setCopied] = useState(false);
+  const [qcChecked, setQcChecked] = useState<Record<string, boolean>>({
+    "qc-peak": true,
+    "qc-mono": true,
+    "qc-4sys": true,
+  });
+
+  const [rows, setRows] = useState<SplitCollaborator[]>([
+    {
+      id: "c1",
+      legalName: "Alex Rivera",
+      role: "Songwriter / Lead Vocal",
+      pro: "BMI",
+      writerIpi: "00841920311",
+      publisherName: "Self-Published (BMI 200%)",
+      compPct: 50,
+      masterPct: 50,
+    },
+    {
+      id: "c2",
+      legalName: "Jordan Chen",
+      role: "Co-Writer / Producer",
+      pro: "ASCAP",
+      writerIpi: "00712839455",
+      publisherName: "Chen Sound Publishing (ASCAP)",
+      compPct: 50,
+      masterPct: 50,
+    },
+  ]);
+
+  const totalComp = rows.reduce((s, r) => s + (Number(r.compPct) || 0), 0);
+  const totalMaster = rows.reduce((s, r) => s + (Number(r.masterPct) || 0), 0);
+
+  const updateRow = (id: string, patch: Partial<SplitCollaborator>) => {
+    setRows((prev) => prev.map((r) => (r.id === id ? { ...r, ...patch } : r)));
+  };
+
+  const addRow = () => {
+    setRows((prev) => [
+      ...prev,
+      {
+        id: `c_${Date.now()}`,
+        legalName: `Collaborator ${prev.length + 1}`,
+        role: "Co-Writer",
+        pro: "ASCAP",
+        writerIpi: "00000000000",
+        publisherName: "Self-Published",
+        compPct: 0,
+        masterPct: 0,
+      },
+    ]);
+  };
+
+  const removeRow = (id: string) => {
+    if (rows.length <= 1) return;
+    setRows((prev) => prev.filter((r) => r.id !== id));
+  };
+
+  const markdownText = useMemo(() => {
+    return [
+      `# SONGWRITING & MASTER RECORDING SPLIT SHEET AGREEMENT`,
+      ``,
+      `- **Track Title:** ${songTitle}`,
+      `- **Primary Artist:** ${artistName}`,
+      `- **Target Release Date:** ${releaseDate}`,
+      `- **ISRC (Master ℗):** \`${isrc}\``,
+      `- **ISWC (Composition ©):** \`${iswc}\``,
+      ``,
+      `| Legal Name | Role | PRO | Writer IPI # | Publisher Entity | Composition (©) % | Master (℗) % |`,
+      `|---|---|---|---|---|---:|---:|`,
+      ...rows.map(
+        (r) =>
+          `| ${r.legalName} | ${r.role} | ${r.pro} | \`${r.writerIpi}\` | ${r.publisherName} | **${r.compPct}%** | **${r.masterPct}%** |`
+      ),
+      `| **TOTAL** | | | | | **${totalComp}%** | **${totalMaster}%** |`,
+      ``,
+      `## Signatures`,
+      ...rows.map(
+        (r) =>
+          `- **${r.legalName}** (${r.compPct}% © / ${r.masterPct}% ℗): ____________________________ Date: ____________`
+      ),
+    ].join("\n");
+  }, [songTitle, artistName, releaseDate, isrc, iswc, rows, totalComp, totalMaster]);
+
+  const copyMarkdown = () => {
+    if (typeof navigator !== "undefined" && navigator.clipboard) {
+      navigator.clipboard.writeText(markdownText);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    }
+  };
+
+  const downloadMarkdown = () => {
+    if (typeof document === "undefined") return;
+    const blob = new Blob([markdownText], { type: "text/markdown;charset=utf-8" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = `${songTitle.toLowerCase().replace(/[^a-z0-9]+/g, "-")}-split-sheet.md`;
+    a.click();
+    URL.revokeObjectURL(url);
+  };
+
+  return (
+    <div
+      id="split-sheet-generator"
+      className="rounded-2xl bg-card border border-border p-6 sm:p-8 shadow-lg space-y-8"
+    >
+      <div className="flex flex-wrap items-center justify-between gap-4">
+        <div>
+          <span className="text-xs font-mono uppercase tracking-wider text-primary font-semibold">
+            Studio Session Sign-Off &amp; Deliverable Gate
+          </span>
+          <h3 className="text-2xl sm:text-3xl font-bold mt-1">
+            Interactive Split Sheet Generator &amp; Pre-Release Listening Session QC
+          </h3>
+        </div>
+        <div className="flex flex-wrap gap-2">
+          <button
+            type="button"
+            onClick={addRow}
+            className="text-xs px-3 py-1.5 rounded-lg border border-border bg-background hover:bg-secondary transition"
+          >
+            + Add Co-Writer / Producer
+          </button>
+          <button
+            type="button"
+            onClick={copyMarkdown}
+            className="text-xs px-3 py-1.5 rounded-lg border border-primary/40 bg-primary/10 text-primary font-semibold hover:bg-primary/20 transition"
+          >
+            {copied ? "✓ Copied Split Sheet!" : "Copy Markdown Split Sheet"}
+          </button>
+          <button
+            type="button"
+            onClick={downloadMarkdown}
+            className="text-xs px-3 py-1.5 rounded-lg bg-primary text-primary-foreground font-semibold hover:bg-primary/90 transition"
+          >
+            Download Printable Agreement (.md)
+          </button>
+        </div>
+      </div>
+
+      {/* Metadata inputs */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3">
+        <label className="block">
+          <span className="text-xs font-mono uppercase text-muted-foreground">Track Title</span>
+          <input
+            type="text"
+            value={songTitle}
+            onChange={(e) => setSongTitle(e.target.value)}
+            className="mt-1 w-full rounded-lg border border-border bg-background px-3 py-2 text-sm"
+          />
+        </label>
+        <label className="block">
+          <span className="text-xs font-mono uppercase text-muted-foreground">Primary Artist</span>
+          <input
+            type="text"
+            value={artistName}
+            onChange={(e) => setArtistName(e.target.value)}
+            className="mt-1 w-full rounded-lg border border-border bg-background px-3 py-2 text-sm"
+          />
+        </label>
+        <label className="block">
+          <span className="text-xs font-mono uppercase text-muted-foreground">Release Date</span>
+          <input
+            type="date"
+            value={releaseDate}
+            onChange={(e) => setReleaseDate(e.target.value)}
+            className="mt-1 w-full rounded-lg border border-border bg-background px-3 py-2 text-sm font-mono"
+          />
+        </label>
+        <label className="block">
+          <span className="text-xs font-mono uppercase text-sky-400">ISRC (Master ℗)</span>
+          <input
+            type="text"
+            value={isrc}
+            onChange={(e) => setIsrc(e.target.value)}
+            className="mt-1 w-full rounded-lg border border-border bg-background px-3 py-2 text-sm font-mono text-sky-300"
+          />
+        </label>
+        <label className="block">
+          <span className="text-xs font-mono uppercase text-amber-400">ISWC (Composition ©)</span>
+          <input
+            type="text"
+            value={iswc}
+            onChange={(e) => setIswc(e.target.value)}
+            className="mt-1 w-full rounded-lg border border-border bg-background px-3 py-2 text-sm font-mono text-amber-300"
+          />
+        </label>
+      </div>
+
+      {/* Collaborator Table */}
+      <div className="space-y-2.5">
+        {rows.map((r, i) => (
+          <div
+            key={r.id}
+            className="grid grid-cols-1 sm:grid-cols-12 gap-2.5 items-end rounded-xl border border-border bg-background p-3"
+          >
+            <div className="sm:col-span-2">
+              <span className="text-[11px] font-mono text-muted-foreground">#{i + 1} Legal Name</span>
+              <input
+                type="text"
+                value={r.legalName}
+                onChange={(e) => updateRow(r.id, { legalName: e.target.value })}
+                className="mt-1 w-full rounded border border-border bg-card px-2.5 py-1.5 text-xs"
+              />
+            </div>
+            <div className="sm:col-span-2">
+              <span className="text-[11px] font-mono text-muted-foreground">Role</span>
+              <input
+                type="text"
+                value={r.role}
+                onChange={(e) => updateRow(r.id, { role: e.target.value })}
+                className="mt-1 w-full rounded border border-border bg-card px-2.5 py-1.5 text-xs"
+              />
+            </div>
+            <div className="sm:col-span-1">
+              <span className="text-[11px] font-mono text-muted-foreground">PRO</span>
+              <select
+                value={r.pro}
+                onChange={(e) =>
+                  updateRow(r.id, { pro: e.target.value as SplitCollaborator["pro"] })
+                }
+                className="mt-1 w-full rounded border border-border bg-card px-2 py-1.5 text-xs"
+              >
+                <option value="BMI">BMI</option>
+                <option value="ASCAP">ASCAP</option>
+                <option value="SESAC">SESAC</option>
+                <option value="None">None</option>
+              </select>
+            </div>
+            <div className="sm:col-span-2">
+              <span className="text-[11px] font-mono text-muted-foreground">Writer IPI #</span>
+              <input
+                type="text"
+                value={r.writerIpi}
+                onChange={(e) => updateRow(r.id, { writerIpi: e.target.value })}
+                className="mt-1 w-full rounded border border-border bg-card px-2.5 py-1.5 text-xs font-mono"
+              />
+            </div>
+            <div className="sm:col-span-2">
+              <span className="text-[11px] font-mono text-muted-foreground">Publisher / Claim</span>
+              <input
+                type="text"
+                value={r.publisherName}
+                onChange={(e) => updateRow(r.id, { publisherName: e.target.value })}
+                className="mt-1 w-full rounded border border-border bg-card px-2.5 py-1.5 text-xs"
+              />
+            </div>
+            <div className="sm:col-span-1">
+              <span className="text-[11px] font-mono text-amber-400">© %</span>
+              <input
+                type="number"
+                min={0}
+                max={100}
+                value={r.compPct}
+                onChange={(e) => updateRow(r.id, { compPct: Number(e.target.value) })}
+                className="mt-1 w-full rounded border border-border bg-card px-2 py-1.5 text-xs font-mono text-amber-300"
+              />
+            </div>
+            <div className="sm:col-span-1">
+              <span className="text-[11px] font-mono text-sky-400">℗ %</span>
+              <input
+                type="number"
+                min={0}
+                max={100}
+                value={r.masterPct}
+                onChange={(e) => updateRow(r.id, { masterPct: Number(e.target.value) })}
+                className="mt-1 w-full rounded border border-border bg-card px-2 py-1.5 text-xs font-mono text-sky-300"
+              />
+            </div>
+            <div className="sm:col-span-1 flex justify-end">
+              <button
+                type="button"
+                onClick={() => removeRow(r.id)}
+                disabled={rows.length <= 1}
+                className="rounded border border-border bg-card px-2.5 py-1.5 text-xs text-muted-foreground hover:text-red-400 disabled:opacity-40"
+              >
+                ✕
+              </button>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div className="flex flex-wrap items-center justify-between gap-4 rounded-xl border border-border bg-background p-3.5 text-xs font-mono">
+        <span className={totalComp === 100 ? "text-emerald-400 font-bold" : "text-red-400 font-bold"}>
+          Composition (©) Total: {totalComp}% {totalComp === 100 ? "✓ VALID" : "(Must equal 100%)"}
+        </span>
+        <span className={totalMaster === 100 ? "text-emerald-400 font-bold" : "text-red-400 font-bold"}>
+          Master (℗) Total: {totalMaster}% {totalMaster === 100 ? "✓ VALID" : "(Must equal 100%)"}
+        </span>
+      </div>
+
+      {/* Listening Session QC Grid */}
+      <div className="pt-4 border-t border-border">
+        <h4 className="text-lg font-bold mb-3">
+          Pre-Release Studio Listening Session &amp; Sync Deliverable Checklist
+        </h4>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+          {LISTENING_QC_ITEMS.map((item) => {
+            const done = !!qcChecked[item.id];
+            return (
+              <button
+                key={item.id}
+                type="button"
+                onClick={() =>
+                  setQcChecked((prev) => ({ ...prev, [item.id]: !prev[item.id] }))
+                }
+                className={`p-3.5 rounded-xl border text-left transition ${
+                  done
+                    ? "border-emerald-500/50 bg-emerald-950/20"
+                    : "border-border bg-background hover:border-primary/40"
+                }`}
+              >
+                <div className="flex items-center justify-between gap-2 mb-1">
+                  <span className="text-[10px] font-mono uppercase text-primary">
+                    {item.stage}
+                  </span>
+                  <span
+                    className={`text-[10px] font-mono font-bold px-1.5 py-0.5 rounded ${
+                      done
+                        ? "bg-emerald-500/20 text-emerald-300"
+                        : "bg-secondary text-muted-foreground"
+                    }`}
+                  >
+                    {done ? "✓ VERIFIED" : "TODO"}
+                  </span>
+                </div>
+                <div className="text-xs font-bold text-foreground mb-0.5">
+                  {item.title}
+                </div>
+                <div className="text-[10px] font-mono text-amber-300 mb-1">
+                  {item.spec}
+                </div>
+                <p className="text-[11px] text-muted-foreground leading-snug">
+                  {item.detail}
+                </p>
+              </button>
+            );
+          })}
+        </div>
+      </div>
+    </div>
+  );
+}
+
